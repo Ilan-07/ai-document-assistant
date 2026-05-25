@@ -1,0 +1,46 @@
+NOVA RESEARCH LABS - EMPLOYEE HANDBOOK (FY 2026)
+
+1. ABOUT NOVA RESEARCH LABS
+Nova Research Labs was founded on March 14, 2017 by Dr. Lena Okafor and Marcus Reinholt in Portland, Oregon. The company specializes in scientific instrument software for spectroscopy and microscopy. As of January 2026, Nova employs 142 people across three offices: Portland (HQ), Boston, and Lisbon.
+
+2. OFFICE LOCATIONS AND HOURS
+- Portland HQ: 1207 NW Glisan Street, Portland, OR 97209. Open 8:00 AM to 7:00 PM Pacific Time.
+- Boston: 80 Atlantic Avenue, 5th Floor, Boston, MA 02110. Open 8:30 AM to 6:30 PM Eastern Time.
+- Lisbon: Rua da Misericordia 42, 1200-273 Lisbon, Portugal. Open 9:00 AM to 6:00 PM Western European Time.
+
+3. WORKING HOURS AND REMOTE POLICY
+Nova operates on a hybrid model. Employees are expected on-site at their assigned office on Tuesdays, Wednesdays, and Thursdays. Mondays and Fridays are designated remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.
+
+4. PAID TIME OFF
+- Vacation: 22 days per calendar year, accrued at 1.83 days per month. Up to 5 unused days may be carried over into the following year.
+- Sick leave: 10 days per year, non-accruing.
+- Personal days: 3 per year, must be requested at least 48 hours in advance unless emergency.
+- Bereavement: up to 5 paid days for immediate family.
+
+5. PARENTAL LEAVE
+Birthing parents receive 16 weeks of fully paid leave. Non-birthing parents receive 12 weeks of fully paid leave. Both must be taken within the first 12 months following birth or adoption. Adoption leave matches biological parental leave.
+
+6. EXPENSE REIMBURSEMENT
+- Meals during business travel: up to $75 per day in the US, 60 EUR per day in Europe.
+- Lodging: up to $250 per night in the US, 200 EUR per night in Europe.
+- Ride-shares: reimbursed in full with receipt.
+- Personal vehicle mileage: $0.67 per mile (IRS standard rate, FY 2026).
+All expenses over $500 require pre-approval from a direct manager. Submit reports through Concur within 30 days of incurring the expense.
+
+7. EQUIPMENT
+Each employee receives a MacBook Pro (14-inch, M3 Pro) or equivalent Linux workstation, one 27-inch external monitor, and a $400 one-time home-office stipend. Replacements are provided on a 3-year cycle. Lost or damaged equipment outside normal wear must be reported to IT within 24 hours.
+
+8. HOLIDAYS
+Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).
+
+9. CODE OF CONDUCT
+Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.
+
+10. CONFIDENTIALITY
+All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action.
+
+11. PERFORMANCE REVIEWS
+Performance reviews are conducted twice per year, in March and September. Each review includes a self-assessment, manager assessment, and peer feedback from at least three colleagues. Promotions are decided at the September cycle only.
+
+12. PROFESSIONAL DEVELOPMENT
+Each employee has access to a $2,500 annual learning budget, refreshed each January. Eligible expenses include conferences, online courses, books, and certifications. Unused funds do not roll over.

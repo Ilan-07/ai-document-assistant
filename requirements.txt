@@ -1,0 +1,19 @@
+streamlit>=1.36,<2
+# LangChain 0.3 series - the langchain-experimental extras pin to this line.
+langchain>=0.3,<1
+langchain-community>=0.3,<0.4
+langchain-chroma>=0.1.4,<1
+langchain-huggingface>=0.1,<1
+langchain-ollama>=0.2,<1
+langchain-text-splitters>=0.3,<1
+langchain-experimental>=0.3,<0.4
+chromadb>=0.5,<2
+sentence-transformers>=3.0,<6
+pymupdf>=1.24
+rank_bm25>=0.2
+
+# Layout-aware document parsing (PDF tables, headers, lists, sections)
+unstructured[pdf]>=0.16,<0.17
+
+# Evaluation harness (deterministic scorer; no LLM judge)
+numpy>=1.26

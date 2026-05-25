@@ -1,0 +1,97 @@
+SENTRY-X3 INDUSTRIAL GAS DETECTOR - TECHNICAL MANUAL
+Revision 4.2 | Effective Q1 2026 | Helios Detection Systems
+
+1. OVERVIEW
+The SENTRY-X3 is the fourth-generation portable gas detector from Helios Detection Systems, designed for use in confined spaces, refinery operations, and emergency response. It uses a combination of electrochemical, catalytic bead, and non-dispersive infrared (NDIR) sensors to monitor target gases continuously and trigger audible and visual alarms when concentrations exceed configured thresholds. SENTRY-X3 units are intrinsically safe and certified for use in Zone 0, Zone 1, and Zone 2 hazardous environments under ATEX directive 2014/34/EU.
+
+2. MODEL VARIANTS
+The SENTRY-X3 product line includes three primary variants, distinguished by sensor count and target gas selection:
+
+- SENTRY-X3-100: Single-gas configuration. At order time, customers select one of O2, CO, or H2S. Intended for routine spot checks. Weight: 218 grams. Operating temperature: -20 to +50 C.
+
+- SENTRY-X3-400: Four-gas configuration. Detects O2 (oxygen), CO (carbon monoxide), H2S (hydrogen sulfide), and LEL (lower explosive limit for combustible gases). Standard for confined-space entry. Weight: 286 grams. Operating temperature: -20 to +55 C.
+
+- SENTRY-X3-700: Seven-gas configuration. Detects all four X3-400 gases plus SO2 (sulfur dioxide), NO2 (nitrogen dioxide), and NH3 (ammonia). Intended for refinery and chemical-plant use. Weight: 342 grams. Operating temperature: -20 to +55 C.
+
+All three variants share the same outer enclosure dimensions: 121 mm tall, 73 mm wide, 41 mm deep.
+
+3. POWER AND BATTERY LIFE
+SENTRY-X3 units run on a single rechargeable lithium-polymer battery (3.7 V, 2400 mAh, part number HDS-BAT-X3). Charging is performed via the included drop-in charging cradle (part HDS-CRDL-X3) using a 5 V / 2 A USB-C power supply. Full charge time: 4.5 hours. Battery life under continuous operation, with all sensors active and backlight at default brightness:
+
+- X3-100: 36 hours
+- X3-400: 22 hours
+- X3-700: 16 hours
+
+Battery health is reported as a percentage on the home screen and degrades by approximately 0.5% per 100 charge cycles. Replacement batteries are warranted for 24 months from date of installation.
+
+4. DETECTED GASES - RANGES AND ALARM THRESHOLDS
+The following alarm thresholds are the factory defaults. They may be adjusted in the field using the maintenance menu (see Section 7), within the ranges shown in parentheses.
+
+- O2 (oxygen): Detection range 0 to 30.0 vol%. Low alarm 19.5 vol% (adjustable 18.0 to 19.9). High alarm 23.5 vol% (adjustable 22.0 to 25.0).
+- CO (carbon monoxide): Detection range 0 to 1000 ppm. Low alarm 25 ppm. High alarm 100 ppm. STEL 100 ppm (15 min). TWA 25 ppm (8 hour).
+- H2S (hydrogen sulfide): Detection range 0 to 200 ppm. Low alarm 5 ppm. High alarm 10 ppm. STEL 15 ppm. TWA 1 ppm.
+- LEL (combustible): Detection range 0 to 100% LEL. Low alarm 10% LEL. High alarm 20% LEL. No STEL or TWA values apply.
+- SO2 (sulfur dioxide): Detection range 0 to 20 ppm. Low alarm 2 ppm. High alarm 5 ppm. STEL 5 ppm. TWA 2 ppm.
+- NO2 (nitrogen dioxide): Detection range 0 to 20 ppm. Low alarm 2.5 ppm. High alarm 5 ppm. STEL 1 ppm. TWA 3 ppm.
+- NH3 (ammonia): Detection range 0 to 100 ppm. Low alarm 25 ppm. High alarm 50 ppm. STEL 35 ppm. TWA 25 ppm.
+
+5. INSTALLATION AND POWER-ON
+Out of the box, each SENTRY-X3 ships with a 50% pre-charge. Before first use, fully charge the unit in the supplied cradle for at least 4.5 hours. Power on by pressing and holding the green PWR button for 3 seconds. The device performs a self-test (approximately 30 seconds) during which all sensors warm up and the display cycles through every alarm icon. Do not enter a hazardous area until self-test completes and the home screen displays "READY". If any sensor fails self-test, the unit will display the corresponding error code (see Section 9) and refuse to enter monitoring mode.
+
+6. BUMP TEST PROCEDURE
+A bump test verifies that each sensor responds to its target gas. Helios recommends a bump test before every shift in which the detector will be used in a hazardous area. The procedure:
+  Step 1. Attach the bump-test calibration cap (part HDS-CAP-BMP) to the front of the unit.
+  Step 2. Connect a calibration gas cylinder (Helios recommends quad-mix part HDS-GAS-Q1: 18% O2, 50 ppm CO, 25 ppm H2S, 50% LEL methane) using the supplied 3/16-inch tubing.
+  Step 3. From the home screen, press the SETUP button twice to enter the maintenance menu, then select "Bump Test".
+  Step 4. Open the cylinder regulator to deliver 0.5 LPM for 30 seconds.
+  Step 5. The unit will mark each sensor PASS (green) or FAIL (red). Any FAIL requires a full span calibration (see Section 7) before the unit may be returned to service.
+
+7. SPAN CALIBRATION
+Span calibration is required every 180 days, or sooner if any sensor fails a bump test. The procedure is identical to the bump test except that, in step 3, select "Span Calibration" instead of "Bump Test", and the cylinder must deliver gas for 60 seconds (not 30). Successful span calibration updates the internal calibration certificate, which is logged with timestamp and operator ID and accessible via the maintenance menu under "Calibration Log".
+
+8. MAINTENANCE SCHEDULE
+- Daily, before use: bump test.
+- Every 180 days: full span calibration.
+- Every 12 months: sensor module inspection. Replace any sensor with end-of-life status indicator. Sensor lifespans vary: O2 sensors typically last 24 months; H2S, CO, SO2, NO2 sensors typically last 36 months; LEL and NH3 sensors typically last 48 months.
+- Every 24 months: replace battery (part HDS-BAT-X3).
+- As needed: replace dust filter (part HDS-FLT-X3) when display warns "FILTER".
+
+9. ERROR CODES
+The SENTRY-X3 reports faults as numeric error codes prefixed with "E". Selected codes:
+- E01: O2 sensor self-test failure. Replace O2 sensor module.
+- E02: CO sensor self-test failure. Replace CO sensor module.
+- E03: H2S sensor self-test failure. Replace H2S sensor module.
+- E04: LEL sensor self-test failure. Replace LEL sensor module.
+- E07: Battery temperature out of range. Wait for unit to reach -20 to +55 C and retry.
+- E09: Battery charge below 5%. Charge for at least 30 minutes before use.
+- E12: Bump test overdue by more than 24 hours. Perform a bump test before returning to service.
+- E14: Span calibration overdue (last calibration over 180 days ago). Perform span calibration before returning to service.
+- E15: Internal clock not set. Set date and time via maintenance menu.
+
+10. CERTIFICATIONS AND COMPLIANCE
+The SENTRY-X3 has been independently certified by the following authorities:
+- ATEX (European Union): II 1G Ex ia IIC T4 Ga
+- IECEx (international): Ex ia IIC T4 Ga
+- UL (United States): Class I, Division 1, Groups A B C D, T4
+- CSA (Canada): Class I, Division 1, Groups A B C D, T4
+- MED (marine equipment, EU): module B + module D
+- INMETRO (Brazil): Ex ia IIC T4 Ga
+The device complies with EN 60079-0:2018, EN 60079-11:2012, and IEC 61010-1:2010.
+
+11. WARRANTY
+Helios warrants every SENTRY-X3 against defects in materials and workmanship for 36 months from date of shipment. Sensor modules carry their own warranty: 24 months for O2 sensors, 36 months for all other electrochemical sensors, 48 months for LEL catalytic beads, and 24 months for the NDIR NH3 sensor. Batteries are warranted for 24 months. Warranty service must be initiated through an authorized Helios service center; a list is available at helios-detection.example/service. The warranty does not cover damage from drops onto hard surfaces, exposure to water above IP67 rating, or use of non-Helios calibration gases or replacement parts.
+
+12. ORDERING SPARE PARTS
+Common spare parts and their order codes:
+- Replacement battery: HDS-BAT-X3
+- Charging cradle: HDS-CRDL-X3
+- Bump test cap: HDS-CAP-BMP
+- Dust filter (pack of 5): HDS-FLT-X3
+- Quad-mix calibration gas (58L cylinder): HDS-GAS-Q1
+- Seven-gas calibration cylinder (58L): HDS-GAS-S7
+- Replacement O2 sensor module: HDS-SENS-O2
+- Replacement CO sensor module: HDS-SENS-CO
+- Replacement H2S sensor module: HDS-SENS-H2S
+- Replacement LEL sensor module: HDS-SENS-LEL
+
+Orders are accepted through any authorized Helios distributor. Standard lead time is 5 business days for items in stock and up to 6 weeks for special-order sensor modules.

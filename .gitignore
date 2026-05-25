@@ -1,0 +1,46 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Local environment configuration
+.env
+.env.local
+
+# Local vector store (regenerated on upload)
+chroma_db/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE / editor / agent metadata
+.vscode/
+.idea/
+.claude/
+.deepeval/
+*.swp
+*.swo
+
+# Sample documents you don't want to commit
+*.pdf
+*.txt
+!requirements.txt
+!eval/sample_docs/*.txt
+!eval/sample_docs/*.pdf
+!eval/dataset.jsonl
+
+# Eval outputs (you may want to commit baseline.json explicitly)
+eval/last_run.json
