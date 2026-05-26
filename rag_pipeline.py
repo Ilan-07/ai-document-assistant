@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -20,6 +21,7 @@ from langchain_community.cross_encoders import HuggingFaceCrossEncoder
 from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnablePassthrough
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_ollama import ChatOllama
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -170,18 +172,80 @@ def _ensure_nltk_data() -> None:
         if orig_ctx is not None:
             ssl._create_default_https_context = orig_ctx
 
+# Ordered most-specific first: a "What are all the SKUs" question should match
+# LIST, not WHAT; "What does X mean" should match DEFINE, etc.
+_QUESTION_TYPE_PATTERNS: list[tuple[str, re.Pattern]] = [
+    ("SUMMARY", re.compile(
+        r"^\s*(summari[sz]e|give (me )?an? overview|provide an? overview|"
+        r"describe (the|this) (document|text|book|paper|article))",
+        re.I,
+    )),
+    ("COMPARE", re.compile(
+        r"^\s*compare\b|\b(versus|vs\.?)\b|\bwhat(?:'s| is) the difference\b|"
+        r"\bhow (?:does|do) .+ differ\b|\bdifference between\b",
+        re.I,
+    )),
+    ("LIST", re.compile(
+        r"^\s*(list|name all|enumerate|what are all|which .+ are there|"
+        r"give (me )?(a |the )?list)",
+        re.I,
+    )),
+    ("DEFINE", re.compile(
+        r"^\s*(define|definition of)\b|\bwhat does .+ mean\b|\bwhat is meant by\b",
+        re.I,
+    )),
+    ("YES_NO", re.compile(
+        r"^\s*(is|are|am|was|were|do|does|did|can|could|will|would|should|"
+        r"shall|has|have|had|may|might|must)\b",
+        re.I,
+    )),
+    ("WHO", re.compile(r"^\s*who\b", re.I)),
+    ("WHEN", re.compile(r"^\s*when\b", re.I)),
+    ("WHERE", re.compile(r"^\s*where\b", re.I)),
+    ("WHY", re.compile(r"^\s*why\b", re.I)),
+    ("HOW", re.compile(r"^\s*how\b", re.I)),
+    ("WHAT", re.compile(r"^\s*what\b", re.I)),
+]
+
+FORMAT_RULES: dict[str, str] = {
+    "WHAT":    "One-sentence identification, then 2-4 supporting details from the context.",
+    "WHEN":    "Lead with the exact date or date range, then one short sentence of context.",
+    "HOW":     "If it's a procedure, give numbered steps. If it's a mechanism, give a cause -> effect chain.",
+    "WHERE":   "Lead with the location, then one short sentence of spatial context.",
+    "WHY":     "First sentence states the reason. Then cite the supporting evidence and the consequence chain.",
+    "WHO":     "Name first, then title or affiliation exactly as stated in the document.",
+    "YES_NO":  "Begin with 'YES - ', 'NO - ', or 'PARTIALLY - ', then one sentence of evidence from the context.",
+    "LIST":    "Markdown bullet list of every relevant item, then a parenthetical item count, e.g. (5 items).",
+    "COMPARE": "Side-by-side description using explicit contrast language (whereas, while, in contrast).",
+    "DEFINE":  "One-line definition, then a brief elaboration sentence.",
+    "SUMMARY": "Exactly 5-8 sentences as flowing prose. No bullets, no sub-bullets, no headings, no lists of any kind.",
+    "DEFAULT": "Be terse. Aim for one sentence.",
+}
+
+
+def classify_question(question: str) -> str:
+    """Return one of the FORMAT_RULES keys for `question`, or 'DEFAULT'."""
+    for label, pattern in _QUESTION_TYPE_PATTERNS:
+        if pattern.search(question):
+            return label
+    return "DEFAULT"
+
+
 QA_SYSTEM_PROMPT = (
     "You answer questions about a document the user uploaded. "
     "Use ONLY the information in the context below.\n\n"
     "Rules:\n"
-    "1. If the answer is not in the context, reply exactly: "
-    "\"I don't know based on the provided document.\" Nothing else.\n"
-    "2. Be terse. Aim for one sentence. Never preface with phrases like "
-    "\"According to the document\", \"The document states\", \"Based on the context\", "
-    "\"Section X says\", or \"It is mentioned that\". Just answer.\n"
+    "1. If the answer is genuinely not in the context, reply exactly: "
+    "\"I don't know based on the provided document.\" Nothing else - "
+    "no YES/NO prefix, no supporting details, no format directive. "
+    "But do NOT refuse when the answer IS present in the context, even if it "
+    "requires combining a few sentences or rephrasing slightly.\n"
+    "2. Never preface with phrases like \"According to the document\", "
+    "\"The document states\", \"Based on the context\", \"Section X says\", "
+    "or \"It is mentioned that\". Just answer.\n"
     "3. Quote numbers, dates, dollar amounts, codes, and proper nouns exactly as they "
     "appear in the context. Do not round, paraphrase, or summarize them.\n"
-    "4. If the question asks to compare or list, give only the items - no commentary.\n\n"
+    "4. Answer format (only when Rule 1 does not apply): {format_rules}\n\n"
     "Context:\n{context}"
 )
 
@@ -456,7 +520,11 @@ def build_qa_chain(
         [("system", QA_SYSTEM_PROMPT), ("human", "{input}")]
     )
     combine_docs_chain = create_stuff_documents_chain(llm, prompt)
-    return create_retrieval_chain(retriever, combine_docs_chain)
+    retrieval_chain = create_retrieval_chain(retriever, combine_docs_chain)
+    # Inject question-type-specific format rules into the prompt at invocation time.
+    return RunnablePassthrough.assign(
+        format_rules=lambda x: FORMAT_RULES[classify_question(x["input"])]
+    ) | retrieval_chain
 
 
 def answer_question(chain, question: str) -> dict:

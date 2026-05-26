@@ -125,18 +125,19 @@ def run_pipeline(rows: list[dict]) -> list[dict]:
 
         chain = chains[doc]
         question = row["question"]
-        print(f"[{i}/{len(rows)}] Q: {question[:90]}")
+        print(f"[{i}/{len(rows)}] Q: {question[:90]}", flush=True)
         t0 = time.perf_counter()
         out = chain.invoke({"input": question})
         latency = time.perf_counter() - t0
         answer = (out.get("answer") or "").strip()
         contexts = [d.page_content for d in out.get("context", [])]
-        print(f"    A: {answer[:120]}")
-        print(f"    latency: {latency:.2f}s, retrieved {len(contexts)} chunks")
+        print(f"    A: {answer[:120]}", flush=True)
+        print(f"    latency: {latency:.2f}s, retrieved {len(contexts)} chunks", flush=True)
 
         records.append({
             "id": row.get("id"),
             "type": row.get("type"),
+            "format_type": row.get("format_type"),
             "doc": doc,
             "question": question,
             "answer": answer,
@@ -213,6 +214,62 @@ def _split_sentences(text: str) -> list[str]:
     return [p.strip() for p in parts if p.strip()]
 
 
+# Format checks for the question-type-aware prompt. Each returns True if the
+# answer shape matches what the FORMAT_RULES directive asked for. These are
+# intentionally loose - we want to catch flagrant misses (no bullets in a LIST
+# answer, no YES/NO prefix), not nitpick stylistic choices.
+_NUMBERED_STEP_RE = re.compile(r"(?m)^\s*(?:step\s+)?\d+[.)]\s+\S", re.I)
+_BULLET_RE = re.compile(r"(?m)^\s*[-*]\s+\S")
+_DATE_RE = re.compile(
+    r"\b(19|20)\d{2}\b|"
+    r"\b(jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\b",
+    re.I,
+)
+_CAUSE_EFFECT_RE = re.compile(r"->|→|\bbecause\b|\bso that\b|\bresults? in\b|\bleads? to\b|\bcauses?\b", re.I)
+_WHY_RE = re.compile(r"\bbecause\b|\bdue to\b|\bin order to\b|\bto ensure\b|\bso that\b|\bthe reason\b", re.I)
+_CONTRAST_RE = re.compile(
+    r"\bwhereas\b|\bwhile\b|\bin contrast\b|\bby contrast\b|\bdiffers?\b|"
+    r"\b(?:vs|versus)\.?\b|\bcompared to\b|\bunlike\b|\bon the other hand\b",
+    re.I,
+)
+_YES_NO_RE = re.compile(r"^\s*[*_`'\"]*\s*(yes|no|partially)\b[\s\-:—]", re.I)
+_PROPER_NAME_RE = re.compile(r"\b[A-Z][a-z]+(?:\s+[A-Z][a-z.]+)+")
+
+
+def check_format(answer: str, fmt: str) -> bool | None:
+    """Return True/False if `answer` matches the expected shape for `fmt`, or None if no check."""
+    if not answer:
+        return False
+    if fmt == "YES_NO":
+        return bool(_YES_NO_RE.match(answer))
+    if fmt == "LIST":
+        return bool(_BULLET_RE.search(answer))
+    if fmt == "SUMMARY":
+        n = len(_split_sentences(answer))
+        return 4 <= n <= 9
+    if fmt == "WHEN":
+        return bool(_DATE_RE.search(answer))
+    if fmt == "HOW":
+        return bool(_NUMBERED_STEP_RE.search(answer) or _CAUSE_EFFECT_RE.search(answer))
+    if fmt == "WHY":
+        return bool(_WHY_RE.search(answer))
+    if fmt == "COMPARE":
+        return bool(_CONTRAST_RE.search(answer))
+    if fmt == "WHAT":
+        n = len(_split_sentences(answer))
+        return 1 <= n <= 6
+    if fmt == "DEFINE":
+        # Looks like a definition: under 4 sentences, not a refusal, has content.
+        return len(_split_sentences(answer)) <= 4 and not is_refusal(answer)
+    if fmt == "WHO":
+        # At minimum names a person (multi-word capitalized noun).
+        return bool(_PROPER_NAME_RE.search(answer))
+    if fmt == "WHERE":
+        # Non-empty, non-refusal. Locations are too varied to pattern-match cheaply.
+        return bool(answer.strip()) and not is_refusal(answer)
+    return None
+
+
 def score_deterministic(records: list[dict], embeddings) -> dict:
     """Score records with deterministic + embedding-based metrics. No LLM judge."""
     # Collect all strings we need embeddings for, in one batch per category.
@@ -241,6 +298,7 @@ def score_deterministic(records: list[dict], embeddings) -> dict:
     precisions: list[float] = []
     recalls: list[float] = []
     correctness: list[float] = []
+    format_scores: list[float] = []
 
     for i, r in enumerate(records):
         gold = r["ground_truth"]
@@ -298,12 +356,24 @@ def score_deterministic(records: list[dict], embeddings) -> dict:
             row_recall = covered / n_sents
             recalls.append(row_recall)
 
+        # Format-shape compliance for rows tagged with format_type.
+        fmt = r.get("format_type")
+        if fmt:
+            fmt_pass = check_format(answer, fmt)
+            row_format = None if fmt_pass is None else (1.0 if fmt_pass else 0.0)
+            if row_format is not None:
+                format_scores.append(row_format)
+        else:
+            row_format = None
+
         per_row.append({
             "id": r["id"],
             "type": r["type"],
+            "format_type": fmt,
             "answer_correctness": row_correct,
             "answer_f1": row_f1,
             "refusal_correct": (None if not is_oos else bool(is_refusal(answer))),
+            "format_compliance": row_format,
             "context_precision": row_precision,
             "context_recall": row_recall,
         })
@@ -318,6 +388,7 @@ def score_deterministic(records: list[dict], embeddings) -> dict:
         "answer_correctness": _mean(correctness),
         "answer_f1": _mean(f1_scores),
         "refusal_accuracy": _mean(refusal_correct),
+        "format_compliance": _mean(format_scores),
         "context_precision": _mean(precisions),
         "context_recall": _mean(recalls),
     }

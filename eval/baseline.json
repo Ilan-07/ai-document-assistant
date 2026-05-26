@@ -1,11 +1,12 @@
 {
   "dataset": "/Users/ilan/Downloads/Nunnari Projects/eval/dataset.jsonl",
-  "n_rows": 35,
+  "n_rows": 46,
   "scorer": "deterministic_v1",
   "records": [
     {
       "id": "fact-01",
       "type": "factual",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "Who founded Nova Research Labs and when?",
       "answer": "Dr. Lena Okafor and Marcus Reinholt founded Nova Research Labs on March 14, 2017.",
@@ -15,11 +16,12 @@
         "11. PERFORMANCE REVIEWS Performance reviews are conducted twice per year, in March and September. Each review includes a self-assessment, manager assessment, and peer feedback from at least three colleagues. Promotions are decided at the September cycle only.\n\n12. PROFESSIONAL DEVELOPMENT Each employee has access to a $2,500 annual learning budget, refreshed each January. Eligible expenses include conferences, online courses, books, and certifications. Unused funds do not roll over."
       ],
       "ground_truth": "Nova Research Labs was founded on March 14, 2017 by Dr. Lena Okafor and Marcus Reinholt.",
-      "latency_sec": 21.901
+      "latency_sec": 12.697
     },
     {
       "id": "fact-02",
       "type": "factual",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "What is the street address of the Boston office?",
       "answer": "80 Atlantic Avenue, 5th Floor, Boston, MA 02110.",
@@ -29,25 +31,27 @@
         "3. WORKING HOURS AND REMOTE POLICY Nova operates on a hybrid model. Employees are expected on-site at their assigned office on Tuesdays, Wednesdays, and Thursdays. Mondays and Fridays are designated remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.\n\n4. PAID TIME OFF - Vacation: 22 days per calendar year, accrued at 1.83 days per month. Up to 5 unused days may be carried over into the following year. - Sick leave: 10 days per year, non-accruing. - Personal days: 3 per year, must be requested at least 48 hours in advance unless emergency. - Bereavement: up to 5 paid days for immediate family.\n\n5. PARENTAL LEAVE Birthing parents receive 16 weeks of fully paid leave. Non-birthing parents receive 12 weeks of fully paid leave. Both must be taken within the first 12 months following birth or adoption. Adoption leave matches biological parental leave."
       ],
       "ground_truth": "80 Atlantic Avenue, 5th Floor, Boston, MA 02110.",
-      "latency_sec": 12.316
+      "latency_sec": 9.185
     },
     {
       "id": "fact-03",
       "type": "factual",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "How many paid vacation days do employees receive per year?",
-      "answer": "22 days.",
+      "answer": "22 days per calendar year.",
       "contexts": [
         "3. WORKING HOURS AND REMOTE POLICY Nova operates on a hybrid model. Employees are expected on-site at their assigned office on Tuesdays, Wednesdays, and Thursdays. Mondays and Fridays are designated remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.\n\n4. PAID TIME OFF - Vacation: 22 days per calendar year, accrued at 1.83 days per month. Up to 5 unused days may be carried over into the following year. - Sick leave: 10 days per year, non-accruing. - Personal days: 3 per year, must be requested at least 48 hours in advance unless emergency. - Bereavement: up to 5 paid days for immediate family.\n\n5. PARENTAL LEAVE Birthing parents receive 16 weeks of fully paid leave. Non-birthing parents receive 12 weeks of fully paid leave. Both must be taken within the first 12 months following birth or adoption. Adoption leave matches biological parental leave.",
         "6. EXPENSE REIMBURSEMENT - Meals during business travel: up to $75 per day in the US, 60 EUR per day in Europe. - Lodging: up to $250 per night in the US, 200 EUR per night in Europe. - Ride-shares: reimbursed in full with receipt. - Personal vehicle mileage: $0.67 per mile (IRS standard rate, FY 2026). All expenses over $500 require pre-approval from a direct manager. Submit reports through Concur within 30 days of incurring the expense.\n\n7. EQUIPMENT Each employee receives a MacBook Pro (14-inch, M3 Pro) or equivalent Linux workstation, one 27-inch external monitor, and a $400 one-time home-office stipend. Replacements are provided on a 3-year cycle. Lost or damaged equipment outside normal wear must be reported to IT within 24 hours.",
         "11. PERFORMANCE REVIEWS Performance reviews are conducted twice per year, in March and September. Each review includes a self-assessment, manager assessment, and peer feedback from at least three colleagues. Promotions are decided at the September cycle only.\n\n12. PROFESSIONAL DEVELOPMENT Each employee has access to a $2,500 annual learning budget, refreshed each January. Eligible expenses include conferences, online courses, books, and certifications. Unused funds do not roll over."
       ],
       "ground_truth": "22 paid vacation days per calendar year.",
-      "latency_sec": 11.774
+      "latency_sec": 8.847
     },
     {
       "id": "fact-04",
       "type": "factual",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "How many weeks of paid leave do birthing parents receive?",
       "answer": "16 weeks",
@@ -57,11 +61,12 @@
         "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action."
       ],
       "ground_truth": "Birthing parents receive 16 weeks of fully paid leave.",
-      "latency_sec": 9.756
+      "latency_sec": 6.781
     },
     {
       "id": "fact-05",
       "type": "factual",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "What mileage rate does Nova use for personal vehicle reimbursement?",
       "answer": "$0.67 per mile (IRS standard rate, FY 2026).",
@@ -71,39 +76,42 @@
         "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action."
       ],
       "ground_truth": "$0.67 per mile (the IRS standard rate for FY 2026).",
-      "latency_sec": 17.449
+      "latency_sec": 8.414
     },
     {
       "id": "synth-01",
       "type": "synthesis",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "How do the daily working hours of the Portland and Lisbon offices differ?",
-      "answer": "Portland: 8:00 AM to 7:00 PM Pacific Time, \nLisbon: 9:00 AM to 6:00 PM Western European Time.",
+      "answer": "The Portland office is open from 8:00 AM to 7:00 PM Pacific Time, while the Lisbon office is open from 9:00 AM to 6:00 PM Western European Time.",
       "contexts": [
         "NOVA RESEARCH LABS\n\nEMPLOYEE HANDBOOK (FY 2026)\n\n1. ABOUT NOVA RESEARCH LABS Nova Research Labs was founded on March 14, 2017 by Dr. Lena Okafor and Marcus Reinholt in Portland, Oregon. The company specializes in scientific instrument software for spectroscopy and microscopy. As of January 2026, Nova employs 142 people across three offices: Portland (HQ), Boston, and Lisbon.\n\n2. OFFICE LOCATIONS AND HOURS - Portland HQ: 1207 NW Glisan Street, Portland, OR 97209. Open 8:00 AM to 7:00 PM Pacific Time. - Boston: 80 Atlantic Avenue, 5th Floor, Boston, MA 02110. Open 8:30 AM to 6:30 PM Eastern Time. - Lisbon: Rua da Misericordia 42, 1200-273 Lisbon, Portugal. Open 9:00 AM to 6:00 PM Western European Time.",
         "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action.",
         "3. WORKING HOURS AND REMOTE POLICY Nova operates on a hybrid model. Employees are expected on-site at their assigned office on Tuesdays, Wednesdays, and Thursdays. Mondays and Fridays are designated remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.\n\n4. PAID TIME OFF - Vacation: 22 days per calendar year, accrued at 1.83 days per month. Up to 5 unused days may be carried over into the following year. - Sick leave: 10 days per year, non-accruing. - Personal days: 3 per year, must be requested at least 48 hours in advance unless emergency. - Bereavement: up to 5 paid days for immediate family.\n\n5. PARENTAL LEAVE Birthing parents receive 16 weeks of fully paid leave. Non-birthing parents receive 12 weeks of fully paid leave. Both must be taken within the first 12 months following birth or adoption. Adoption leave matches biological parental leave."
       ],
       "ground_truth": "Portland is open 8:00 AM to 7:00 PM Pacific Time (11 hours). Lisbon is open 9:00 AM to 6:00 PM Western European Time (9 hours). Portland opens earlier and closes later than Lisbon.",
-      "latency_sec": 21.39
+      "latency_sec": 10.56
     },
     {
       "id": "synth-02",
       "type": "synthesis",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "Summarize Nova's hybrid work policy and explain when an employee can request fully remote status.",
-      "answer": "Employees are expected on-site at their assigned office three days a week (Tuesdays, Wednesdays, Thursdays). Mondays and Fridays are designated remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.",
+      "answer": "Nova operates on a hybrid model with employees expected on-site at their assigned office three days a week (Tuesdays, Wednesdays, and Thursdays). Mondays and Fridays are designated as remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.",
       "contexts": [
         "3. WORKING HOURS AND REMOTE POLICY Nova operates on a hybrid model. Employees are expected on-site at their assigned office on Tuesdays, Wednesdays, and Thursdays. Mondays and Fridays are designated remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.\n\n4. PAID TIME OFF - Vacation: 22 days per calendar year, accrued at 1.83 days per month. Up to 5 unused days may be carried over into the following year. - Sick leave: 10 days per year, non-accruing. - Personal days: 3 per year, must be requested at least 48 hours in advance unless emergency. - Bereavement: up to 5 paid days for immediate family.\n\n5. PARENTAL LEAVE Birthing parents receive 16 weeks of fully paid leave. Non-birthing parents receive 12 weeks of fully paid leave. Both must be taken within the first 12 months following birth or adoption. Adoption leave matches biological parental leave.",
         "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action.",
         "NOVA RESEARCH LABS\n\nEMPLOYEE HANDBOOK (FY 2026)\n\n1. ABOUT NOVA RESEARCH LABS Nova Research Labs was founded on March 14, 2017 by Dr. Lena Okafor and Marcus Reinholt in Portland, Oregon. The company specializes in scientific instrument software for spectroscopy and microscopy. As of January 2026, Nova employs 142 people across three offices: Portland (HQ), Boston, and Lisbon.\n\n2. OFFICE LOCATIONS AND HOURS - Portland HQ: 1207 NW Glisan Street, Portland, OR 97209. Open 8:00 AM to 7:00 PM Pacific Time. - Boston: 80 Atlantic Avenue, 5th Floor, Boston, MA 02110. Open 8:30 AM to 6:30 PM Eastern Time. - Lisbon: Rua da Misericordia 42, 1200-273 Lisbon, Portugal. Open 9:00 AM to 6:00 PM Western European Time."
       ],
       "ground_truth": "Employees are on-site Tuesday through Thursday and remote on Monday and Friday. Engineers may request fully remote status after 12 months of employment with manager approval.",
-      "latency_sec": 22.133
+      "latency_sec": 11.705
     },
     {
       "id": "synth-03",
       "type": "synthesis",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "Beyond vacation, what kinds of paid leave are available to employees?",
       "answer": "Sick leave: 10 days per year, non-accruing; Personal days: 3 per year, must be requested at least 48 hours in advance unless emergency; Bereavement: up to 5 paid days for immediate family.",
@@ -113,25 +121,27 @@
         "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action."
       ],
       "ground_truth": "Sick leave (10 days/year), personal days (3 days/year), bereavement leave (up to 5 days), and parental leave (16 weeks for birthing parents, 12 weeks for non-birthing parents).",
-      "latency_sec": 31.95
+      "latency_sec": 10.295
     },
     {
       "id": "synth-04",
       "type": "synthesis",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "What equipment and home-office support does a new employee receive on day one?",
-      "answer": "A MacBook Pro (14-inch, M3 Pro) or equivalent Linux workstation, one 27-inch external monitor, and a $400 one-time home-office stipend.",
+      "answer": "A new employee receives a MacBook Pro (14-inch, M3 Pro) or equivalent Linux workstation, one 27-inch external monitor, and a $400 one-time home-office stipend.",
       "contexts": [
         "6. EXPENSE REIMBURSEMENT - Meals during business travel: up to $75 per day in the US, 60 EUR per day in Europe. - Lodging: up to $250 per night in the US, 200 EUR per night in Europe. - Ride-shares: reimbursed in full with receipt. - Personal vehicle mileage: $0.67 per mile (IRS standard rate, FY 2026). All expenses over $500 require pre-approval from a direct manager. Submit reports through Concur within 30 days of incurring the expense.\n\n7. EQUIPMENT Each employee receives a MacBook Pro (14-inch, M3 Pro) or equivalent Linux workstation, one 27-inch external monitor, and a $400 one-time home-office stipend. Replacements are provided on a 3-year cycle. Lost or damaged equipment outside normal wear must be reported to IT within 24 hours.",
         "11. PERFORMANCE REVIEWS Performance reviews are conducted twice per year, in March and September. Each review includes a self-assessment, manager assessment, and peer feedback from at least three colleagues. Promotions are decided at the September cycle only.\n\n12. PROFESSIONAL DEVELOPMENT Each employee has access to a $2,500 annual learning budget, refreshed each January. Eligible expenses include conferences, online courses, books, and certifications. Unused funds do not roll over.",
         "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action."
       ],
       "ground_truth": "A 14-inch MacBook Pro (M3 Pro) or equivalent Linux workstation, one 27-inch external monitor, and a $400 one-time home-office stipend.",
-      "latency_sec": 19.193
+      "latency_sec": 8.555
     },
     {
       "id": "num-01",
       "type": "numeric",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "What is the maximum daily meal reimbursement when traveling in Europe?",
       "answer": "60 EUR per day.",
@@ -141,39 +151,42 @@
         "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action."
       ],
       "ground_truth": "60 EUR per day.",
-      "latency_sec": 4.756
+      "latency_sec": 2.021
     },
     {
       "id": "num-02",
       "type": "numeric",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "Above what dollar amount does an expense require pre-approval from a manager?",
-      "answer": "$500",
+      "answer": "$500.",
       "contexts": [
         "6. EXPENSE REIMBURSEMENT - Meals during business travel: up to $75 per day in the US, 60 EUR per day in Europe. - Lodging: up to $250 per night in the US, 200 EUR per night in Europe. - Ride-shares: reimbursed in full with receipt. - Personal vehicle mileage: $0.67 per mile (IRS standard rate, FY 2026). All expenses over $500 require pre-approval from a direct manager. Submit reports through Concur within 30 days of incurring the expense.\n\n7. EQUIPMENT Each employee receives a MacBook Pro (14-inch, M3 Pro) or equivalent Linux workstation, one 27-inch external monitor, and a $400 one-time home-office stipend. Replacements are provided on a 3-year cycle. Lost or damaged equipment outside normal wear must be reported to IT within 24 hours.",
         "11. PERFORMANCE REVIEWS Performance reviews are conducted twice per year, in March and September. Each review includes a self-assessment, manager assessment, and peer feedback from at least three colleagues. Promotions are decided at the September cycle only.\n\n12. PROFESSIONAL DEVELOPMENT Each employee has access to a $2,500 annual learning budget, refreshed each January. Eligible expenses include conferences, online courses, books, and certifications. Unused funds do not roll over.",
         "3. WORKING HOURS AND REMOTE POLICY Nova operates on a hybrid model. Employees are expected on-site at their assigned office on Tuesdays, Wednesdays, and Thursdays. Mondays and Fridays are designated remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.\n\n4. PAID TIME OFF - Vacation: 22 days per calendar year, accrued at 1.83 days per month. Up to 5 unused days may be carried over into the following year. - Sick leave: 10 days per year, non-accruing. - Personal days: 3 per year, must be requested at least 48 hours in advance unless emergency. - Bereavement: up to 5 paid days for immediate family.\n\n5. PARENTAL LEAVE Birthing parents receive 16 weeks of fully paid leave. Non-birthing parents receive 12 weeks of fully paid leave. Both must be taken within the first 12 months following birth or adoption. Adoption leave matches biological parental leave."
       ],
       "ground_truth": "$500.",
-      "latency_sec": 6.86
+      "latency_sec": 5.836
     },
     {
       "id": "num-03",
       "type": "numeric",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "How much is the annual professional development learning budget?",
-      "answer": "$2,500.",
+      "answer": "$2,500",
       "contexts": [
         "11. PERFORMANCE REVIEWS Performance reviews are conducted twice per year, in March and September. Each review includes a self-assessment, manager assessment, and peer feedback from at least three colleagues. Promotions are decided at the September cycle only.\n\n12. PROFESSIONAL DEVELOPMENT Each employee has access to a $2,500 annual learning budget, refreshed each January. Eligible expenses include conferences, online courses, books, and certifications. Unused funds do not roll over.",
         "6. EXPENSE REIMBURSEMENT - Meals during business travel: up to $75 per day in the US, 60 EUR per day in Europe. - Lodging: up to $250 per night in the US, 200 EUR per night in Europe. - Ride-shares: reimbursed in full with receipt. - Personal vehicle mileage: $0.67 per mile (IRS standard rate, FY 2026). All expenses over $500 require pre-approval from a direct manager. Submit reports through Concur within 30 days of incurring the expense.\n\n7. EQUIPMENT Each employee receives a MacBook Pro (14-inch, M3 Pro) or equivalent Linux workstation, one 27-inch external monitor, and a $400 one-time home-office stipend. Replacements are provided on a 3-year cycle. Lost or damaged equipment outside normal wear must be reported to IT within 24 hours.",
         "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action."
       ],
       "ground_truth": "$2,500 per employee per year, refreshed each January.",
-      "latency_sec": 11.146
+      "latency_sec": 7.08
     },
     {
       "id": "oos-01",
       "type": "out_of_scope",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "What is the salary range for software engineers at Nova?",
       "answer": "I don't know based on the provided document.",
@@ -183,11 +196,12 @@
         "NOVA RESEARCH LABS\n\nEMPLOYEE HANDBOOK (FY 2026)\n\n1. ABOUT NOVA RESEARCH LABS Nova Research Labs was founded on March 14, 2017 by Dr. Lena Okafor and Marcus Reinholt in Portland, Oregon. The company specializes in scientific instrument software for spectroscopy and microscopy. As of January 2026, Nova employs 142 people across three offices: Portland (HQ), Boston, and Lisbon.\n\n2. OFFICE LOCATIONS AND HOURS - Portland HQ: 1207 NW Glisan Street, Portland, OR 97209. Open 8:00 AM to 7:00 PM Pacific Time. - Boston: 80 Atlantic Avenue, 5th Floor, Boston, MA 02110. Open 8:30 AM to 6:30 PM Eastern Time. - Lisbon: Rua da Misericordia 42, 1200-273 Lisbon, Portugal. Open 9:00 AM to 6:00 PM Western European Time."
       ],
       "ground_truth": "I don't know based on the provided document.",
-      "latency_sec": 13.278
+      "latency_sec": 8.066
     },
     {
       "id": "oos-02",
       "type": "out_of_scope",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "Does Nova offer a 401(k) match for retirement contributions?",
       "answer": "I don't know based on the provided document.",
@@ -197,11 +211,12 @@
         "11. PERFORMANCE REVIEWS Performance reviews are conducted twice per year, in March and September. Each review includes a self-assessment, manager assessment, and peer feedback from at least three colleagues. Promotions are decided at the September cycle only.\n\n12. PROFESSIONAL DEVELOPMENT Each employee has access to a $2,500 annual learning budget, refreshed each January. Eligible expenses include conferences, online courses, books, and certifications. Unused funds do not roll over."
       ],
       "ground_truth": "I don't know based on the provided document.",
-      "latency_sec": 9.14
+      "latency_sec": 7.188
     },
     {
       "id": "oos-03",
       "type": "out_of_scope",
+      "format_type": null,
       "doc": "eval/sample_docs/nova_handbook.txt",
       "question": "Who is the current CEO of Nova Research Labs?",
       "answer": "I don't know based on the provided document.",
@@ -211,11 +226,12 @@
         "11. PERFORMANCE REVIEWS Performance reviews are conducted twice per year, in March and September. Each review includes a self-assessment, manager assessment, and peer feedback from at least three colleagues. Promotions are decided at the September cycle only.\n\n12. PROFESSIONAL DEVELOPMENT Each employee has access to a $2,500 annual learning budget, refreshed each January. Eligible expenses include conferences, online courses, books, and certifications. Unused funds do not roll over."
       ],
       "ground_truth": "I don't know based on the provided document.",
-      "latency_sec": 14.213
+      "latency_sec": 7.589
     },
     {
       "id": "sx3-fact-01",
       "type": "factual",
+      "format_type": null,
       "doc": "eval/sample_docs/sentry_x3_manual.txt",
       "question": "What is the order code (part number) for the replacement battery on the SENTRY-X3?",
       "answer": "HDS-BAT-X3",
@@ -225,11 +241,12 @@
         "9. ERROR CODES The SENTRY-X3 reports faults as numeric error codes prefixed with \"E\". Selected codes: - E01: O2 sensor self-test failure. Replace O2 sensor module. - E02: CO sensor self-test failure. Replace CO sensor module. - E03: H2S sensor self-test failure. Replace H2S sensor module. - E04: LEL sensor self-test failure. Replace LEL sensor module. - E07: Battery temperature out of range. Wait for unit to reach -20 to +55 C and retry. - E09: Battery charge below 5%. Charge for at least 30 minutes before use. - E12: Bump test overdue by more than 24 hours. Perform a bump test before returning to service. - E14: Span calibration overdue (last calibration over 180 days ago). Perform span calibration before returning to service. - E15: Internal clock not set. Set date and time via maintenance menu."
       ],
       "ground_truth": "HDS-BAT-X3.",
-      "latency_sec": 15.33
+      "latency_sec": 21.215
     },
     {
       "id": "sx3-fact-02",
       "type": "factual",
+      "format_type": null,
       "doc": "eval/sample_docs/sentry_x3_manual.txt",
       "question": "What is the SENTRY-X3's ATEX certification rating?",
       "answer": "II 1G Ex ia IIC T4 Ga",
@@ -239,25 +256,27 @@
         "20 to +50 C.\n\nSENTRY\n\nX3\n\n400: Four\n\ngas configuration. Detects O2 (oxygen), CO (carbon monoxide), H2S (hydrogen sulfide), and LEL (lower explosive limit for combustible gases). Standard for confined\n\nspace entry. Weight: 286 grams. Operating temperature:\n\n20 to +55 C.\n\nSENTRY\n\nX3\n\n700: Seven\n\ngas configuration. Detects all four X3\n\n400 gases plus SO2 (sulfur dioxide), NO2 (nitrogen dioxide), and NH3 (ammonia). Intended for refinery and chemical\n\nplant use. Weight: 342 grams. Operating temperature:\n\n20 to +55 C.\n\nAll three variants share the same outer enclosure dimensions: 121 mm tall, 73 mm wide, 41 mm deep."
       ],
       "ground_truth": "II 1G Ex ia IIC T4 Ga.",
-      "latency_sec": 25.096
+      "latency_sec": 12.26
     },
     {
       "id": "sx3-fact-03",
       "type": "factual",
+      "format_type": null,
       "doc": "eval/sample_docs/sentry_x3_manual.txt",
       "question": "Which SENTRY-X3 model variant detects ammonia (NH3)?",
-      "answer": "SENTRY X3 700: Seven gas configuration.",
+      "answer": "SENTRY X3 700: Seven gas configuration, which includes SO2, NO2, and NH3.",
       "contexts": [
         "20 to +50 C.\n\nSENTRY\n\nX3\n\n400: Four\n\ngas configuration. Detects O2 (oxygen), CO (carbon monoxide), H2S (hydrogen sulfide), and LEL (lower explosive limit for combustible gases). Standard for confined\n\nspace entry. Weight: 286 grams. Operating temperature:\n\n20 to +55 C.\n\nSENTRY\n\nX3\n\n700: Seven\n\ngas configuration. Detects all four X3\n\n400 gases plus SO2 (sulfur dioxide), NO2 (nitrogen dioxide), and NH3 (ammonia). Intended for refinery and chemical\n\nplant use. Weight: 342 grams. Operating temperature:\n\n20 to +55 C.\n\nAll three variants share the same outer enclosure dimensions: 121 mm tall, 73 mm wide, 41 mm deep.",
         "SENTRY-X3 INDUSTRIAL GAS DETECTOR - TECHNICAL MANUAL Revision 4.2 | Effective Q1 2026 | Helios Detection Systems\n\n1. OVERVIEW The SENTRY-X3 is the fourth-generation portable gas detector from Helios Detection Systems, designed for use in confined spaces, refinery operations, and emergency response. It uses a combination of electrochemical, catalytic bead, and non-dispersive infrared (NDIR) sensors to monitor target gases continuously and trigger audible and visual alarms when concentrations exceed configured thresholds. SENTRY-X3 units are intrinsically safe and certified for use in Zone 0, Zone 1, and Zone 2 hazardous environments under ATEX directive 2014/34/EU.\n\n2. MODEL VARIANTS The SENTRY-X3 product line includes three primary variants, distinguished by sensor count and target gas selection:\n\nSENTRY\n\nX3\n\n100: Single\n\ngas configuration. At order time, customers select one of O2, CO, or H2S. Intended for routine spot checks. Weight: 218 grams. Operating temperature:",
         "O2 (oxygen): Detection range 0 to 30.0 vol%. Low alarm 19.5 vol% (adjustable 18.0 to 19.9). High alarm 23.5 vol% (adjustable 22.0 to 25.0).\n\nCO (carbon monoxide): Detection range 0 to 1000 ppm. Low alarm 25 ppm. High alarm 100 ppm. STEL 100 ppm (15 min). TWA 25 ppm (8 hour).\n\nH2S (hydrogen sulfide): Detection range 0 to 200 ppm. Low alarm 5 ppm. High alarm 10 ppm. STEL 15 ppm. TWA 1 ppm.\n\nLEL (combustible): Detection range 0 to 100% LEL. Low alarm 10% LEL. High alarm 20% LEL. No STEL or TWA values apply.\n\nSO2 (sulfur dioxide): Detection range 0 to 20 ppm. Low alarm 2 ppm. High alarm 5 ppm. STEL 5 ppm. TWA 2 ppm.\n\nNO2 (nitrogen dioxide): Detection range 0 to 20 ppm. Low alarm 2.5 ppm. High alarm 5 ppm. STEL 1 ppm. TWA 3 ppm.\n\nNH3 (ammonia): Detection range 0 to 100 ppm. Low alarm 25 ppm. High alarm 50 ppm. STEL 35 ppm. TWA 25 ppm."
       ],
       "ground_truth": "The SENTRY-X3-700 (seven-gas configuration).",
-      "latency_sec": 31.174
+      "latency_sec": 13.375
     },
     {
       "id": "sx3-num-01",
       "type": "numeric",
+      "format_type": null,
       "doc": "eval/sample_docs/sentry_x3_manual.txt",
       "question": "What is the factory-default high alarm threshold for hydrogen sulfide (H2S)?",
       "answer": "10 ppm.",
@@ -267,11 +286,12 @@
         "SENTRY-X3 INDUSTRIAL GAS DETECTOR - TECHNICAL MANUAL Revision 4.2 | Effective Q1 2026 | Helios Detection Systems\n\n1. OVERVIEW The SENTRY-X3 is the fourth-generation portable gas detector from Helios Detection Systems, designed for use in confined spaces, refinery operations, and emergency response. It uses a combination of electrochemical, catalytic bead, and non-dispersive infrared (NDIR) sensors to monitor target gases continuously and trigger audible and visual alarms when concentrations exceed configured thresholds. SENTRY-X3 units are intrinsically safe and certified for use in Zone 0, Zone 1, and Zone 2 hazardous environments under ATEX directive 2014/34/EU.\n\n2. MODEL VARIANTS The SENTRY-X3 product line includes three primary variants, distinguished by sensor count and target gas selection:\n\nSENTRY\n\nX3\n\n100: Single\n\ngas configuration. At order time, customers select one of O2, CO, or H2S. Intended for routine spot checks. Weight: 218 grams. Operating temperature:"
       ],
       "ground_truth": "10 ppm.",
-      "latency_sec": 22.011
+      "latency_sec": 14.765
     },
     {
       "id": "sx3-num-02",
       "type": "numeric",
+      "format_type": null,
       "doc": "eval/sample_docs/sentry_x3_manual.txt",
       "question": "How many hours of continuous operation does the SENTRY-X3-400 battery support?",
       "answer": "22 hours",
@@ -281,11 +301,12 @@
         "5. INSTALLATION AND POWER-ON Out of the box, each SENTRY-X3 ships with a 50% pre-charge. Before first use, fully charge the unit in the supplied cradle for at least 4.5 hours. Power on by pressing and holding the green PWR button for 3 seconds. The device performs a self-test (approximately 30 seconds) during which all sensors warm up and the display cycles through every alarm icon. Do not enter a hazardous area until self-test completes and the home screen displays \"READY\". If any sensor fails self-test, the unit will display the corresponding error code (see Section 9) and refuse to enter monitoring mode."
       ],
       "ground_truth": "22 hours.",
-      "latency_sec": 14.932
+      "latency_sec": 12.996
     },
     {
       "id": "sx3-num-03",
       "type": "numeric",
+      "format_type": null,
       "doc": "eval/sample_docs/sentry_x3_manual.txt",
       "question": "How long must the calibration gas cylinder deliver gas during a span calibration?",
       "answer": "60 seconds.",
@@ -295,39 +316,42 @@
         "9. ERROR CODES The SENTRY-X3 reports faults as numeric error codes prefixed with \"E\". Selected codes: - E01: O2 sensor self-test failure. Replace O2 sensor module. - E02: CO sensor self-test failure. Replace CO sensor module. - E03: H2S sensor self-test failure. Replace H2S sensor module. - E04: LEL sensor self-test failure. Replace LEL sensor module. - E07: Battery temperature out of range. Wait for unit to reach -20 to +55 C and retry. - E09: Battery charge below 5%. Charge for at least 30 minutes before use. - E12: Bump test overdue by more than 24 hours. Perform a bump test before returning to service. - E14: Span calibration overdue (last calibration over 180 days ago). Perform span calibration before returning to service. - E15: Internal clock not set. Set date and time via maintenance menu."
       ],
       "ground_truth": "60 seconds.",
-      "latency_sec": 15.644
+      "latency_sec": 13.159
     },
     {
       "id": "sx3-synth-01",
       "type": "synthesis",
+      "format_type": null,
       "doc": "eval/sample_docs/sentry_x3_manual.txt",
       "question": "What does error code E14 indicate on the SENTRY-X3 and what action is required?",
-      "answer": "E14 indicates span calibration is overdue (last calibration over 180 days ago). Perform span calibration before returning to service.",
+      "answer": "Error code E14 indicates that span calibration is overdue (last calibration over 180 days ago). Perform span calibration before returning to service.",
       "contexts": [
         "9. ERROR CODES The SENTRY-X3 reports faults as numeric error codes prefixed with \"E\". Selected codes: - E01: O2 sensor self-test failure. Replace O2 sensor module. - E02: CO sensor self-test failure. Replace CO sensor module. - E03: H2S sensor self-test failure. Replace H2S sensor module. - E04: LEL sensor self-test failure. Replace LEL sensor module. - E07: Battery temperature out of range. Wait for unit to reach -20 to +55 C and retry. - E09: Battery charge below 5%. Charge for at least 30 minutes before use. - E12: Bump test overdue by more than 24 hours. Perform a bump test before returning to service. - E14: Span calibration overdue (last calibration over 180 days ago). Perform span calibration before returning to service. - E15: Internal clock not set. Set date and time via maintenance menu.",
         "5. INSTALLATION AND POWER-ON Out of the box, each SENTRY-X3 ships with a 50% pre-charge. Before first use, fully charge the unit in the supplied cradle for at least 4.5 hours. Power on by pressing and holding the green PWR button for 3 seconds. The device performs a self-test (approximately 30 seconds) during which all sensors warm up and the display cycles through every alarm icon. Do not enter a hazardous area until self-test completes and the home screen displays \"READY\". If any sensor fails self-test, the unit will display the corresponding error code (see Section 9) and refuse to enter monitoring mode.",
         "SENTRY-X3 INDUSTRIAL GAS DETECTOR - TECHNICAL MANUAL Revision 4.2 | Effective Q1 2026 | Helios Detection Systems\n\n1. OVERVIEW The SENTRY-X3 is the fourth-generation portable gas detector from Helios Detection Systems, designed for use in confined spaces, refinery operations, and emergency response. It uses a combination of electrochemical, catalytic bead, and non-dispersive infrared (NDIR) sensors to monitor target gases continuously and trigger audible and visual alarms when concentrations exceed configured thresholds. SENTRY-X3 units are intrinsically safe and certified for use in Zone 0, Zone 1, and Zone 2 hazardous environments under ATEX directive 2014/34/EU.\n\n2. MODEL VARIANTS The SENTRY-X3 product line includes three primary variants, distinguished by sensor count and target gas selection:\n\nSENTRY\n\nX3\n\n100: Single\n\ngas configuration. At order time, customers select one of O2, CO, or H2S. Intended for routine spot checks. Weight: 218 grams. Operating temperature:"
       ],
       "ground_truth": "E14 means span calibration is overdue (last calibration over 180 days ago). A span calibration must be performed before the unit can return to service.",
-      "latency_sec": 18.725
+      "latency_sec": 27.753
     },
     {
       "id": "sx3-synth-02",
       "type": "synthesis",
+      "format_type": null,
       "doc": "eval/sample_docs/sentry_x3_manual.txt",
       "question": "Compare the maximum operating temperatures of the SENTRY-X3-100 and the SENTRY-X3-700.",
-      "answer": "+55 C",
+      "answer": "The SENTRY-X3-100 has a maximum operating temperature of +55 C, while the SENTRY-X3-700 has a maximum operating temperature of +55 C as well, but its minimum is 20 C.",
       "contexts": [
         "20 to +50 C.\n\nSENTRY\n\nX3\n\n400: Four\n\ngas configuration. Detects O2 (oxygen), CO (carbon monoxide), H2S (hydrogen sulfide), and LEL (lower explosive limit for combustible gases). Standard for confined\n\nspace entry. Weight: 286 grams. Operating temperature:\n\n20 to +55 C.\n\nSENTRY\n\nX3\n\n700: Seven\n\ngas configuration. Detects all four X3\n\n400 gases plus SO2 (sulfur dioxide), NO2 (nitrogen dioxide), and NH3 (ammonia). Intended for refinery and chemical\n\nplant use. Weight: 342 grams. Operating temperature:\n\n20 to +55 C.\n\nAll three variants share the same outer enclosure dimensions: 121 mm tall, 73 mm wide, 41 mm deep.",
         "SENTRY-X3 INDUSTRIAL GAS DETECTOR - TECHNICAL MANUAL Revision 4.2 | Effective Q1 2026 | Helios Detection Systems\n\n1. OVERVIEW The SENTRY-X3 is the fourth-generation portable gas detector from Helios Detection Systems, designed for use in confined spaces, refinery operations, and emergency response. It uses a combination of electrochemical, catalytic bead, and non-dispersive infrared (NDIR) sensors to monitor target gases continuously and trigger audible and visual alarms when concentrations exceed configured thresholds. SENTRY-X3 units are intrinsically safe and certified for use in Zone 0, Zone 1, and Zone 2 hazardous environments under ATEX directive 2014/34/EU.\n\n2. MODEL VARIANTS The SENTRY-X3 product line includes three primary variants, distinguished by sensor count and target gas selection:\n\nSENTRY\n\nX3\n\n100: Single\n\ngas configuration. At order time, customers select one of O2, CO, or H2S. Intended for routine spot checks. Weight: 218 grams. Operating temperature:",
         "3. POWER AND BATTERY LIFE SENTRY-X3 units run on a single rechargeable lithium-polymer battery (3.7 V, 2400 mAh, part number HDS-BAT-X3). Charging is performed via the included drop-in charging cradle (part HDS-CRDL-X3) using a 5 V / 2 A USB-C power supply. Full charge time: 4.5 hours. Battery life under continuous operation, with all sensors active and backlight at default brightness:\n\nX3\n\n100: 36 hours\n\nX3\n\n400: 22 hours\n\nX3\n\n700: 16 hours\n\nBattery health is reported as a percentage on the home screen and degrades by approximately 0.5% per 100 charge cycles. Replacement batteries are warranted for 24 months from date of installation.\n\n4. DETECTED GASES - RANGES AND ALARM THRESHOLDS The following alarm thresholds are the factory defaults. They may be adjusted in the field using the maintenance menu (see Section 7), within the ranges shown in parentheses."
       ],
       "ground_truth": "The X3-100 has a maximum operating temperature of +50 C, while the X3-700 is rated up to +55 C. The X3-700 tolerates 5 C higher than the X3-100.",
-      "latency_sec": 32.55
+      "latency_sec": 25.946
     },
     {
       "id": "sx3-oos-01",
       "type": "out_of_scope",
+      "format_type": null,
       "doc": "eval/sample_docs/sentry_x3_manual.txt",
       "question": "What is the retail price of the SENTRY-X3-400?",
       "answer": "I don't know based on the provided document.",
@@ -337,25 +361,27 @@
         "SENTRY-X3 INDUSTRIAL GAS DETECTOR - TECHNICAL MANUAL Revision 4.2 | Effective Q1 2026 | Helios Detection Systems\n\n1. OVERVIEW The SENTRY-X3 is the fourth-generation portable gas detector from Helios Detection Systems, designed for use in confined spaces, refinery operations, and emergency response. It uses a combination of electrochemical, catalytic bead, and non-dispersive infrared (NDIR) sensors to monitor target gases continuously and trigger audible and visual alarms when concentrations exceed configured thresholds. SENTRY-X3 units are intrinsically safe and certified for use in Zone 0, Zone 1, and Zone 2 hazardous environments under ATEX directive 2014/34/EU.\n\n2. MODEL VARIANTS The SENTRY-X3 product line includes three primary variants, distinguished by sensor count and target gas selection:\n\nSENTRY\n\nX3\n\n100: Single\n\ngas configuration. At order time, customers select one of O2, CO, or H2S. Intended for routine spot checks. Weight: 218 grams. Operating temperature:"
       ],
       "ground_truth": "I don't know based on the provided document.",
-      "latency_sec": 34.246
+      "latency_sec": 17.17
     },
     {
       "id": "sx3-oos-02",
       "type": "out_of_scope",
+      "format_type": null,
       "doc": "eval/sample_docs/sentry_x3_manual.txt",
       "question": "Can the SENTRY-X3 detect hydrogen gas (H2)?",
-      "answer": "No, it can only detect H2S (hydrogen sulfide), not H2 (hydrogen).",
+      "answer": "NO -  H2S (hydrogen sulfide) is mentioned as one of the four target gases for the X3 400 configuration, but there is no mention of H2 (hydrogen).",
       "contexts": [
         "20 to +50 C.\n\nSENTRY\n\nX3\n\n400: Four\n\ngas configuration. Detects O2 (oxygen), CO (carbon monoxide), H2S (hydrogen sulfide), and LEL (lower explosive limit for combustible gases). Standard for confined\n\nspace entry. Weight: 286 grams. Operating temperature:\n\n20 to +55 C.\n\nSENTRY\n\nX3\n\n700: Seven\n\ngas configuration. Detects all four X3\n\n400 gases plus SO2 (sulfur dioxide), NO2 (nitrogen dioxide), and NH3 (ammonia). Intended for refinery and chemical\n\nplant use. Weight: 342 grams. Operating temperature:\n\n20 to +55 C.\n\nAll three variants share the same outer enclosure dimensions: 121 mm tall, 73 mm wide, 41 mm deep.",
         "SENTRY-X3 INDUSTRIAL GAS DETECTOR - TECHNICAL MANUAL Revision 4.2 | Effective Q1 2026 | Helios Detection Systems\n\n1. OVERVIEW The SENTRY-X3 is the fourth-generation portable gas detector from Helios Detection Systems, designed for use in confined spaces, refinery operations, and emergency response. It uses a combination of electrochemical, catalytic bead, and non-dispersive infrared (NDIR) sensors to monitor target gases continuously and trigger audible and visual alarms when concentrations exceed configured thresholds. SENTRY-X3 units are intrinsically safe and certified for use in Zone 0, Zone 1, and Zone 2 hazardous environments under ATEX directive 2014/34/EU.\n\n2. MODEL VARIANTS The SENTRY-X3 product line includes three primary variants, distinguished by sensor count and target gas selection:\n\nSENTRY\n\nX3\n\n100: Single\n\ngas configuration. At order time, customers select one of O2, CO, or H2S. Intended for routine spot checks. Weight: 218 grams. Operating temperature:",
         "11. WARRANTY Helios warrants every SENTRY-X3 against defects in materials and workmanship for 36 months from date of shipment. Sensor modules carry their own warranty: 24 months for O2 sensors, 36 months for all other electrochemical sensors, 48 months for LEL catalytic beads, and 24 months for the NDIR NH3 sensor. Batteries are warranted for 24 months. Warranty service must be initiated through an authorized Helios service center; a list is available at helios-detection.example/service. The warranty does not cover damage from drops onto hard surfaces, exposure to water above IP67 rating, or use of non-Helios calibration gases or replacement parts."
       ],
       "ground_truth": "I don't know based on the provided document.",
-      "latency_sec": 14.882
+      "latency_sec": 15.972
     },
     {
       "id": "fb-fact-01",
       "type": "factual",
+      "format_type": null,
       "doc": "eval/sample_docs/football_tutorial.pdf",
       "question": "How long and how wide is a professional football stadium?",
       "answer": "A professional football stadium should be 105m long and 68m wide.",
@@ -365,11 +391,12 @@
         "Scissor Kick: To kick the ball forward while the player leans sideways and the ball is kicked in the direction which he is playing. This kick is performed while the player is completely off the ground.\n\nScoreline: Indication of scores of both the teams which also has the information about the home ground. If the scoreline shows ABC 0 and DEF 2, this means the game is on ABC\u2019s home ground and the winner is DEF with 2 goals.\n\nTackle: A term used when a player uses his body to take the ball from the opponent, it can be a shoulder charge. Clean tackling means to successfully take the ball from the opponent without a foul.\n\n7\n\nTime: The Football game is divided into two halves and each half is dedicated to be strictly for 45 minutes in any professional game.\n\nYellow Card: This is show to the player, warning him that he has committed a serious offence in the match. It is followed by another yellow card in case of another offence and then the red card."
       ],
       "ground_truth": "Professional football stadiums should be 105m long and 68m wide.",
-      "latency_sec": 25.034
+      "latency_sec": 24.677
     },
     {
       "id": "fb-num-01",
       "type": "numeric",
+      "format_type": null,
       "doc": "eval/sample_docs/football_tutorial.pdf",
       "question": "What is the radius of the centre circle on a football pitch?",
       "answer": "9.15m",
@@ -379,25 +406,27 @@
         "Cristiano Ronaldo\n\nThe Portuguese football player was born in 1985 and started playing professional football at the age of 12. His heroics soon became known globally and the manager of Manchester United roped him for season of 2003-04. Accurate passing, excellent chop and scissor moves are a couple of his exceptional football playing skills. At club level, he is currently playing for Real Madrid and Manchester United was his former. He is believed to be the best finisher of all time by greats. He held the record for highest number of goals in European championship for a long time until Messi broke it.\n\n16"
       ],
       "ground_truth": "9.15m.",
-      "latency_sec": 17.607
+      "latency_sec": 17.143
     },
     {
       "id": "fb-synth-01",
       "type": "synthesis",
+      "format_type": null,
       "doc": "eval/sample_docs/football_tutorial.pdf",
       "question": "When was the Asian Football Confederation formed and where is it headquartered?",
-      "answer": "It was formed in 1954 and is headquartered in Kuala Lumpur, Malaysia.",
+      "answer": "1954, It was formed and is headquartered in Kuala Lumpur, Malaysia.",
       "contexts": [
         "Japan, South Korea, and Indonesia are the other countries with national teams that have represented in international events. Indonesia is first Asian country to have qualified for World Cup. However, India has made a mark in Asian tournaments and is yet to qualify for an international tournament.\n\nThe Asian Football Confederation (AFC) is the governing body of 47 member associations. It was formed in 1954 and headquartered in Kuala Lumpur, Malaysia. Some of these are intercontinental countries like Russia, Turkey, Azerbaijan, and Israel. Australia had joined AFC in 2006 before being a member of Oceania Football Federation.\n\nThere are as many as five governing bodies that manage football outside Asia. All the independent football bodies of various countries are associated with these five federations. Here is the list of various associations and member countries associated with them:",
         "ii\n\nFootball is the most popular sport worldwide. It is also called \u201csoccer\u201d in some countries. It is an outdoor game that requires absolute athleticism as players have to hustle and run across the field with the ball throughout the game. The name of the sport was derived by the way it is played. This sport took its shape in the 18th century.\n\nChina being the mother of Football may raise a few eyebrows. In early days, this sport was played by kids in China which was later picked up by the senior fellows. Despite the origin in Asia, the sport was well received and adapted by people of Europe and South-American countries. Spain, Italy, Brazil, Argentina, and England are some of the best football playing countries. At the same time, there are international tournaments organized in Europe that many clubs participate and compete in for a prestigious cup.",
         "Corner kick: A chance for the corner kick arises when the ball goes over the goal line but not into the goal and was last touched by the defending team member.\n\nGoal kick: When the ball goes over the goal line but not into the goal and was last touched by the attacking team, the ball will be then moved in to the possession of the defending team and the goalie performs the goal kick.\n\n12\n\nThe biggest and the most famous international tournament of Football is The World Cup which is organized by FIFA. This competition takes place once in every four years. There are approximately 190 to 200 national teams competing to qualify in this tournament. The final which is conducted once in every four years involves 32 teams of different nations competing one another for over 4 week\u2019s period.\n\nThe next FIFA World Cup will be the 21st World Cup and it is scheduled to take place in Russia from June-July, 2018."
       ],
       "ground_truth": "The Asian Football Confederation (AFC) was formed in 1954 and is headquartered in Kuala Lumpur, Malaysia.",
-      "latency_sec": 36.402
+      "latency_sec": 13.665
     },
     {
       "id": "fb-fact-02",
       "type": "factual",
+      "format_type": null,
       "doc": "eval/sample_docs/football_tutorial.pdf",
       "question": "How many referees are on the field during a football match?",
       "answer": "Four.",
@@ -407,11 +436,12 @@
         "Pass: An action where a player kicks the ball to his team mate.\n\nPenalty: The situation where a player kicks the ball from the penalty spot and there is only one defender near the goal i.e. the goalkeeper.\n\nPeriod: Football game is divided into two halves in time; first half and second half.\n\nPitch: The Football field is called the pitch for easy use.\n\nReferee: The official in-charge of the game. Referee is the final decision maker in the game; he is the one who checks the time and stops the game when it is over. Players cannot enter or leave the field without his consent. It is the responsibility of the referee to see that the game, ball and players all conform to the rules of the game. There are two assistant referees in the game.\n\nRed Card: A decision of the referee where he decides if a player has made an offence and then asks him to leave the game for the remaining duration."
       ],
       "ground_truth": "Four referees.",
-      "latency_sec": 39.301
+      "latency_sec": 10.903
     },
     {
       "id": "fb-oos-01",
       "type": "out_of_scope",
+      "format_type": null,
       "doc": "eval/sample_docs/football_tutorial.pdf",
       "question": "Who is the current FIFA president?",
       "answer": "I don't know based on the provided document.",
@@ -421,11 +451,12 @@
         "Ronaldo\n\nThe Brazilian striker was considered next to Pele in legends of the game. He took part in four World Cup finals and won twice. Ronaldo is the second highest goal scorer for his nation with 62 goals. He is one amongst the players who won FIFA World Player of the Year three or more times. Ronaldo won Ballon d\u2019Or twice, once in 1997 and again in 2002. Barcelona, Real Madrid, Inter Milan, and PSV are few popular clubs that he played for and finally retired in 2011 after a long streak of injuries.\n\n15"
       ],
       "ground_truth": "I don't know based on the provided document.",
-      "latency_sec": 20.226
+      "latency_sec": 11.648
     },
     {
       "id": "sku-fact-01",
       "type": "factual",
+      "format_type": null,
       "doc": "eval/sample_docs/sku_price_list.pdf",
       "question": "What is the unit price of the Aurora 14 Notebook?",
       "answer": "1499.00",
@@ -435,11 +466,12 @@
         "| SKU | Product | Category | Unit Price (USD) | Stock (units) |\n| --- | --- | --- | --- | --- |\n| NB-1042 | Aurora 14 Notebook | Laptops | 1499.00 | 37 |\n| NB-2188 | Aurora 16 Workstation | Laptops | 2399.00 | 12 |\n| MN-3301 | ChromaView 27 Monitor | Monitors | 549.00 | 84 |\n| MN-3315 | ChromaView 32 Monitor | Monitors | 799.00 | 19 |\n| KB-4710 | Tactile-S Mechanical Keyboard | Peripherals | 129.00 | 152 |\n| MS-4822 | Glide-M Wireless Mouse | Peripherals | 59.00 | 240 |\n| HS-5103 | Vox-Pro Headset | Audio | 189.00 | 63 |\n| DK-6090 | Universal USB-C Dock | Peripherals | 229.00 | 45 |\n| TB-7011 | Slate Pro 11 Tablet | Tablets | 699.00 | 28 |"
       ],
       "ground_truth": "$1499.00 USD.",
-      "latency_sec": 9.44
+      "latency_sec": 13.925
     },
     {
       "id": "sku-fact-02",
       "type": "factual",
+      "format_type": null,
       "doc": "eval/sample_docs/sku_price_list.pdf",
       "question": "What is the SKU code for the Vox-Pro Headset?",
       "answer": "HS-5103",
@@ -449,11 +481,12 @@
         "Vox-Pro Headset\n\nAudio\n\n189.00\n\n63\n\nDK-6090 Universal USB-C Dock\n\nPeripherals\n\n229.00\n\n45\n\nTB-7011\n\nSlate Pro 11 Tablet\n\nTablets\n\n699.00\n\n28\n\nOrdering Notes\n\nOrders above 5000 USD require a purchase order signed by the cost centre owner. All laptops ship with a 36-month onsite warranty; monitors and peripherals carry a 24-month return-to-base warranty. Lead time is 3 business days for stocked items and 4-6 weeks for back-ordered items. Internal transfers between offices incur no shipping fee."
       ],
       "ground_truth": "HS-5103.",
-      "latency_sec": 8.257
+      "latency_sec": 12.437
     },
     {
       "id": "sku-num-01",
       "type": "numeric",
+      "format_type": null,
       "doc": "eval/sample_docs/sku_price_list.pdf",
       "question": "How many units of the ChromaView 32 Monitor are in stock?",
       "answer": "19",
@@ -463,25 +496,27 @@
         "| SKU | Product | Category | Unit Price (USD) | Stock (units) |\n| --- | --- | --- | --- | --- |\n| NB-1042 | Aurora 14 Notebook | Laptops | 1499.00 | 37 |\n| NB-2188 | Aurora 16 Workstation | Laptops | 2399.00 | 12 |\n| MN-3301 | ChromaView 27 Monitor | Monitors | 549.00 | 84 |\n| MN-3315 | ChromaView 32 Monitor | Monitors | 799.00 | 19 |\n| KB-4710 | Tactile-S Mechanical Keyboard | Peripherals | 129.00 | 152 |\n| MS-4822 | Glide-M Wireless Mouse | Peripherals | 59.00 | 240 |\n| HS-5103 | Vox-Pro Headset | Audio | 189.00 | 63 |\n| DK-6090 | Universal USB-C Dock | Peripherals | 229.00 | 45 |\n| TB-7011 | Slate Pro 11 Tablet | Tablets | 699.00 | 28 |"
       ],
       "ground_truth": "19 units.",
-      "latency_sec": 8.9
+      "latency_sec": 9.26
     },
     {
       "id": "sku-synth-01",
       "type": "synthesis",
+      "format_type": null,
       "doc": "eval/sample_docs/sku_price_list.pdf",
       "question": "Which products in the catalogue are classified as Peripherals?",
-      "answer": "MS-4822, DK-6090, KB-4710",
+      "answer": "The following products in the catalogue are classified as Peripherals:\n\n1. Glide-M Wireless Mouse (MS-4822)\n2. Tactile-S Mechanical Keyboard (KB-4710)\n3. Universal USB-C Dock (DK-6090)",
       "contexts": [
         "SKU: MS-4822; Product: Glide-M Wireless Mouse; Category: Peripherals; Unit Price (USD): 59.00; Stock (units): 240",
         "| SKU | Product | Category | Unit Price (USD) | Stock (units) |\n| --- | --- | --- | --- | --- |\n| NB-1042 | Aurora 14 Notebook | Laptops | 1499.00 | 37 |\n| NB-2188 | Aurora 16 Workstation | Laptops | 2399.00 | 12 |\n| MN-3301 | ChromaView 27 Monitor | Monitors | 549.00 | 84 |\n| MN-3315 | ChromaView 32 Monitor | Monitors | 799.00 | 19 |\n| KB-4710 | Tactile-S Mechanical Keyboard | Peripherals | 129.00 | 152 |\n| MS-4822 | Glide-M Wireless Mouse | Peripherals | 59.00 | 240 |\n| HS-5103 | Vox-Pro Headset | Audio | 189.00 | 63 |\n| DK-6090 | Universal USB-C Dock | Peripherals | 229.00 | 45 |\n| TB-7011 | Slate Pro 11 Tablet | Tablets | 699.00 | 28 |",
         "SKU: KB-4710; Product: Tactile-S Mechanical Keyboard; Category: Peripherals; Unit Price (USD): 129.00; Stock (units): 152"
       ],
       "ground_truth": "Tactile-S Mechanical Keyboard, Glide-M Wireless Mouse, and Universal USB-C Dock.",
-      "latency_sec": 10.655
+      "latency_sec": 15.202
     },
     {
       "id": "sku-oos-01",
       "type": "out_of_scope",
+      "format_type": null,
       "doc": "eval/sample_docs/sku_price_list.pdf",
       "question": "What colour is the Aurora 14 Notebook?",
       "answer": "I don't know based on the provided document.",
@@ -491,13 +526,179 @@
         "| SKU | Product | Category | Unit Price (USD) | Stock (units) |\n| --- | --- | --- | --- | --- |\n| NB-1042 | Aurora 14 Notebook | Laptops | 1499.00 | 37 |\n| NB-2188 | Aurora 16 Workstation | Laptops | 2399.00 | 12 |\n| MN-3301 | ChromaView 27 Monitor | Monitors | 549.00 | 84 |\n| MN-3315 | ChromaView 32 Monitor | Monitors | 799.00 | 19 |\n| KB-4710 | Tactile-S Mechanical Keyboard | Peripherals | 129.00 | 152 |\n| MS-4822 | Glide-M Wireless Mouse | Peripherals | 59.00 | 240 |\n| HS-5103 | Vox-Pro Headset | Audio | 189.00 | 63 |\n| DK-6090 | Universal USB-C Dock | Peripherals | 229.00 | 45 |\n| TB-7011 | Slate Pro 11 Tablet | Tablets | 699.00 | 28 |"
       ],
       "ground_truth": "I don't know based on the provided document.",
-      "latency_sec": 18.393
+      "latency_sec": 18.305
+    },
+    {
+      "id": "fmt-what-01",
+      "type": "factual",
+      "format_type": "WHAT",
+      "doc": "eval/sample_docs/nova_handbook.txt",
+      "question": "What is Nova's annual learning budget policy?",
+      "answer": "Each employee has access to a $2,500 annual learning budget, refreshed each January. Eligible expenses include conferences, online courses, books, and certifications. Unused funds do not roll over.",
+      "contexts": [
+        "11. PERFORMANCE REVIEWS Performance reviews are conducted twice per year, in March and September. Each review includes a self-assessment, manager assessment, and peer feedback from at least three colleagues. Promotions are decided at the September cycle only.\n\n12. PROFESSIONAL DEVELOPMENT Each employee has access to a $2,500 annual learning budget, refreshed each January. Eligible expenses include conferences, online courses, books, and certifications. Unused funds do not roll over.",
+        "3. WORKING HOURS AND REMOTE POLICY Nova operates on a hybrid model. Employees are expected on-site at their assigned office on Tuesdays, Wednesdays, and Thursdays. Mondays and Fridays are designated remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.\n\n4. PAID TIME OFF - Vacation: 22 days per calendar year, accrued at 1.83 days per month. Up to 5 unused days may be carried over into the following year. - Sick leave: 10 days per year, non-accruing. - Personal days: 3 per year, must be requested at least 48 hours in advance unless emergency. - Bereavement: up to 5 paid days for immediate family.\n\n5. PARENTAL LEAVE Birthing parents receive 16 weeks of fully paid leave. Non-birthing parents receive 12 weeks of fully paid leave. Both must be taken within the first 12 months following birth or adoption. Adoption leave matches biological parental leave.",
+        "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action."
+      ],
+      "ground_truth": "Nova provides an annual learning budget of $2,500 per employee, refreshed each January, that covers conferences, online courses, books, and certifications.",
+      "latency_sec": 23.525
+    },
+    {
+      "id": "fmt-when-01",
+      "type": "factual",
+      "format_type": "WHEN",
+      "doc": "eval/sample_docs/nova_handbook.txt",
+      "question": "When was Nova Research Labs founded?",
+      "answer": "March 14, 2017",
+      "contexts": [
+        "NOVA RESEARCH LABS\n\nEMPLOYEE HANDBOOK (FY 2026)\n\n1. ABOUT NOVA RESEARCH LABS Nova Research Labs was founded on March 14, 2017 by Dr. Lena Okafor and Marcus Reinholt in Portland, Oregon. The company specializes in scientific instrument software for spectroscopy and microscopy. As of January 2026, Nova employs 142 people across three offices: Portland (HQ), Boston, and Lisbon.\n\n2. OFFICE LOCATIONS AND HOURS - Portland HQ: 1207 NW Glisan Street, Portland, OR 97209. Open 8:00 AM to 7:00 PM Pacific Time. - Boston: 80 Atlantic Avenue, 5th Floor, Boston, MA 02110. Open 8:30 AM to 6:30 PM Eastern Time. - Lisbon: Rua da Misericordia 42, 1200-273 Lisbon, Portugal. Open 9:00 AM to 6:00 PM Western European Time.",
+        "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action.",
+        "3. WORKING HOURS AND REMOTE POLICY Nova operates on a hybrid model. Employees are expected on-site at their assigned office on Tuesdays, Wednesdays, and Thursdays. Mondays and Fridays are designated remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.\n\n4. PAID TIME OFF - Vacation: 22 days per calendar year, accrued at 1.83 days per month. Up to 5 unused days may be carried over into the following year. - Sick leave: 10 days per year, non-accruing. - Personal days: 3 per year, must be requested at least 48 hours in advance unless emergency. - Bereavement: up to 5 paid days for immediate family.\n\n5. PARENTAL LEAVE Birthing parents receive 16 weeks of fully paid leave. Non-birthing parents receive 12 weeks of fully paid leave. Both must be taken within the first 12 months following birth or adoption. Adoption leave matches biological parental leave."
+      ],
+      "ground_truth": "March 14, 2017.",
+      "latency_sec": 34.541
+    },
+    {
+      "id": "fmt-how-01",
+      "type": "factual",
+      "format_type": "HOW",
+      "doc": "eval/sample_docs/sentry_x3_manual.txt",
+      "question": "How do you perform a bump test on the SENTRY-X3?",
+      "answer": "Step 1. Attach the bump-test calibration cap (part HDS-CAP-BMP) to the front of the unit.\n\nStep 2. Connect a calibration gas cylinder (Helios recommends quad-mix part HDS-GAS-Q1: 18% O2, 50 ppm CO, 25 ppm H2S, 50% LEL methane) using the supplied 3/16-inch tubing.\n\nStep 3. From the home screen, press the SETUP button twice to enter the maintenance menu, then select \"Bump Test\".\n\nStep 4. Open the cylinder regulator to deliver 0.5 LPM for 30 seconds.\n\nStep 5. The unit will mark each sensor PASS (green) or FAIL (red). Any FAIL requires a full span calibration (see Section 7) before the unit may be returned to service.",
+      "contexts": [
+        "9. ERROR CODES The SENTRY-X3 reports faults as numeric error codes prefixed with \"E\". Selected codes: - E01: O2 sensor self-test failure. Replace O2 sensor module. - E02: CO sensor self-test failure. Replace CO sensor module. - E03: H2S sensor self-test failure. Replace H2S sensor module. - E04: LEL sensor self-test failure. Replace LEL sensor module. - E07: Battery temperature out of range. Wait for unit to reach -20 to +55 C and retry. - E09: Battery charge below 5%. Charge for at least 30 minutes before use. - E12: Bump test overdue by more than 24 hours. Perform a bump test before returning to service. - E14: Span calibration overdue (last calibration over 180 days ago). Perform span calibration before returning to service. - E15: Internal clock not set. Set date and time via maintenance menu.",
+        "6. BUMP TEST PROCEDURE A bump test verifies that each sensor responds to its target gas. Helios recommends a bump test before every shift in which the detector will be used in a hazardous area. The procedure: Step 1. Attach the bump-test calibration cap (part HDS-CAP-BMP) to the front of the unit. Step 2. Connect a calibration gas cylinder (Helios recommends quad-mix part HDS-GAS-Q1: 18% O2, 50 ppm CO, 25 ppm H2S, 50% LEL methane) using the supplied 3/16-inch tubing. Step 3. From the home screen, press the SETUP button twice to enter the maintenance menu, then select \"Bump Test\". Step 4. Open the cylinder regulator to deliver 0.5 LPM for 30 seconds. Step 5. The unit will mark each sensor PASS (green) or FAIL (red). Any FAIL requires a full span calibration (see Section 7) before the unit may be returned to service.",
+        "5. INSTALLATION AND POWER-ON Out of the box, each SENTRY-X3 ships with a 50% pre-charge. Before first use, fully charge the unit in the supplied cradle for at least 4.5 hours. Power on by pressing and holding the green PWR button for 3 seconds. The device performs a self-test (approximately 30 seconds) during which all sensors warm up and the display cycles through every alarm icon. Do not enter a hazardous area until self-test completes and the home screen displays \"READY\". If any sensor fails self-test, the unit will display the corresponding error code (see Section 9) and refuse to enter monitoring mode."
+      ],
+      "ground_truth": "1. Attach the bump-test calibration cap (HDS-CAP-BMP). 2. Connect a calibration gas cylinder via 3/16-inch tubing. 3. Press SETUP twice and select Bump Test. 4. Open the cylinder regulator to deliver 0.5 LPM for 30 seconds. 5. The unit marks each sensor PASS or FAIL.",
+      "latency_sec": 52.027
+    },
+    {
+      "id": "fmt-where-01",
+      "type": "factual",
+      "format_type": "WHERE",
+      "doc": "eval/sample_docs/nova_handbook.txt",
+      "question": "Where is Nova's Boston office located?",
+      "answer": "Boston: 80 Atlantic Avenue, 5th Floor, Boston, MA 02110.",
+      "contexts": [
+        "NOVA RESEARCH LABS\n\nEMPLOYEE HANDBOOK (FY 2026)\n\n1. ABOUT NOVA RESEARCH LABS Nova Research Labs was founded on March 14, 2017 by Dr. Lena Okafor and Marcus Reinholt in Portland, Oregon. The company specializes in scientific instrument software for spectroscopy and microscopy. As of January 2026, Nova employs 142 people across three offices: Portland (HQ), Boston, and Lisbon.\n\n2. OFFICE LOCATIONS AND HOURS - Portland HQ: 1207 NW Glisan Street, Portland, OR 97209. Open 8:00 AM to 7:00 PM Pacific Time. - Boston: 80 Atlantic Avenue, 5th Floor, Boston, MA 02110. Open 8:30 AM to 6:30 PM Eastern Time. - Lisbon: Rua da Misericordia 42, 1200-273 Lisbon, Portugal. Open 9:00 AM to 6:00 PM Western European Time.",
+        "3. WORKING HOURS AND REMOTE POLICY Nova operates on a hybrid model. Employees are expected on-site at their assigned office on Tuesdays, Wednesdays, and Thursdays. Mondays and Fridays are designated remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.\n\n4. PAID TIME OFF - Vacation: 22 days per calendar year, accrued at 1.83 days per month. Up to 5 unused days may be carried over into the following year. - Sick leave: 10 days per year, non-accruing. - Personal days: 3 per year, must be requested at least 48 hours in advance unless emergency. - Bereavement: up to 5 paid days for immediate family.\n\n5. PARENTAL LEAVE Birthing parents receive 16 weeks of fully paid leave. Non-birthing parents receive 12 weeks of fully paid leave. Both must be taken within the first 12 months following birth or adoption. Adoption leave matches biological parental leave.",
+        "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action."
+      ],
+      "ground_truth": "80 Atlantic Avenue, 5th Floor, Boston, MA 02110.",
+      "latency_sec": 30.399
+    },
+    {
+      "id": "fmt-why-01",
+      "type": "factual",
+      "format_type": "WHY",
+      "doc": "eval/sample_docs/sentry_x3_manual.txt",
+      "question": "Why does the SENTRY-X3 display error code E14?",
+      "answer": "The SENTRY-X3 displays error code E14 when the span calibration is overdue (last calibration over 180 days ago).",
+      "contexts": [
+        "9. ERROR CODES The SENTRY-X3 reports faults as numeric error codes prefixed with \"E\". Selected codes: - E01: O2 sensor self-test failure. Replace O2 sensor module. - E02: CO sensor self-test failure. Replace CO sensor module. - E03: H2S sensor self-test failure. Replace H2S sensor module. - E04: LEL sensor self-test failure. Replace LEL sensor module. - E07: Battery temperature out of range. Wait for unit to reach -20 to +55 C and retry. - E09: Battery charge below 5%. Charge for at least 30 minutes before use. - E12: Bump test overdue by more than 24 hours. Perform a bump test before returning to service. - E14: Span calibration overdue (last calibration over 180 days ago). Perform span calibration before returning to service. - E15: Internal clock not set. Set date and time via maintenance menu.",
+        "5. INSTALLATION AND POWER-ON Out of the box, each SENTRY-X3 ships with a 50% pre-charge. Before first use, fully charge the unit in the supplied cradle for at least 4.5 hours. Power on by pressing and holding the green PWR button for 3 seconds. The device performs a self-test (approximately 30 seconds) during which all sensors warm up and the display cycles through every alarm icon. Do not enter a hazardous area until self-test completes and the home screen displays \"READY\". If any sensor fails self-test, the unit will display the corresponding error code (see Section 9) and refuse to enter monitoring mode.",
+        "SENTRY-X3 INDUSTRIAL GAS DETECTOR - TECHNICAL MANUAL Revision 4.2 | Effective Q1 2026 | Helios Detection Systems\n\n1. OVERVIEW The SENTRY-X3 is the fourth-generation portable gas detector from Helios Detection Systems, designed for use in confined spaces, refinery operations, and emergency response. It uses a combination of electrochemical, catalytic bead, and non-dispersive infrared (NDIR) sensors to monitor target gases continuously and trigger audible and visual alarms when concentrations exceed configured thresholds. SENTRY-X3 units are intrinsically safe and certified for use in Zone 0, Zone 1, and Zone 2 hazardous environments under ATEX directive 2014/34/EU.\n\n2. MODEL VARIANTS The SENTRY-X3 product line includes three primary variants, distinguished by sensor count and target gas selection:\n\nSENTRY\n\nX3\n\n100: Single\n\ngas configuration. At order time, customers select one of O2, CO, or H2S. Intended for routine spot checks. Weight: 218 grams. Operating temperature:"
+      ],
+      "ground_truth": "Because the last span calibration was performed over 180 days ago. A span calibration is required before the unit can return to service.",
+      "latency_sec": 19.418
+    },
+    {
+      "id": "fmt-who-01",
+      "type": "factual",
+      "format_type": "WHO",
+      "doc": "eval/sample_docs/nova_handbook.txt",
+      "question": "Who are the founders of Nova Research Labs?",
+      "answer": "Dr. Lena Okafor and Marcus Reinholt",
+      "contexts": [
+        "NOVA RESEARCH LABS\n\nEMPLOYEE HANDBOOK (FY 2026)\n\n1. ABOUT NOVA RESEARCH LABS Nova Research Labs was founded on March 14, 2017 by Dr. Lena Okafor and Marcus Reinholt in Portland, Oregon. The company specializes in scientific instrument software for spectroscopy and microscopy. As of January 2026, Nova employs 142 people across three offices: Portland (HQ), Boston, and Lisbon.\n\n2. OFFICE LOCATIONS AND HOURS - Portland HQ: 1207 NW Glisan Street, Portland, OR 97209. Open 8:00 AM to 7:00 PM Pacific Time. - Boston: 80 Atlantic Avenue, 5th Floor, Boston, MA 02110. Open 8:30 AM to 6:30 PM Eastern Time. - Lisbon: Rua da Misericordia 42, 1200-273 Lisbon, Portugal. Open 9:00 AM to 6:00 PM Western European Time.",
+        "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action.",
+        "3. WORKING HOURS AND REMOTE POLICY Nova operates on a hybrid model. Employees are expected on-site at their assigned office on Tuesdays, Wednesdays, and Thursdays. Mondays and Fridays are designated remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.\n\n4. PAID TIME OFF - Vacation: 22 days per calendar year, accrued at 1.83 days per month. Up to 5 unused days may be carried over into the following year. - Sick leave: 10 days per year, non-accruing. - Personal days: 3 per year, must be requested at least 48 hours in advance unless emergency. - Bereavement: up to 5 paid days for immediate family.\n\n5. PARENTAL LEAVE Birthing parents receive 16 weeks of fully paid leave. Non-birthing parents receive 12 weeks of fully paid leave. Both must be taken within the first 12 months following birth or adoption. Adoption leave matches biological parental leave."
+      ],
+      "ground_truth": "Dr. Lena Okafor and Marcus Reinholt.",
+      "latency_sec": 17.229
+    },
+    {
+      "id": "fmt-yesno-01",
+      "type": "factual",
+      "format_type": "YES_NO",
+      "doc": "eval/sample_docs/sentry_x3_manual.txt",
+      "question": "Does the SENTRY-X3-700 detect ammonia?",
+      "answer": "YES - It detects NH3 (ammonia) with a detection range of 0 to 100 ppm, low alarm at 25 ppm, high alarm at 50 ppm, STEL at 35 ppm, and TWA at 25 ppm.",
+      "contexts": [
+        "20 to +50 C.\n\nSENTRY\n\nX3\n\n400: Four\n\ngas configuration. Detects O2 (oxygen), CO (carbon monoxide), H2S (hydrogen sulfide), and LEL (lower explosive limit for combustible gases). Standard for confined\n\nspace entry. Weight: 286 grams. Operating temperature:\n\n20 to +55 C.\n\nSENTRY\n\nX3\n\n700: Seven\n\ngas configuration. Detects all four X3\n\n400 gases plus SO2 (sulfur dioxide), NO2 (nitrogen dioxide), and NH3 (ammonia). Intended for refinery and chemical\n\nplant use. Weight: 342 grams. Operating temperature:\n\n20 to +55 C.\n\nAll three variants share the same outer enclosure dimensions: 121 mm tall, 73 mm wide, 41 mm deep.",
+        "O2 (oxygen): Detection range 0 to 30.0 vol%. Low alarm 19.5 vol% (adjustable 18.0 to 19.9). High alarm 23.5 vol% (adjustable 22.0 to 25.0).\n\nCO (carbon monoxide): Detection range 0 to 1000 ppm. Low alarm 25 ppm. High alarm 100 ppm. STEL 100 ppm (15 min). TWA 25 ppm (8 hour).\n\nH2S (hydrogen sulfide): Detection range 0 to 200 ppm. Low alarm 5 ppm. High alarm 10 ppm. STEL 15 ppm. TWA 1 ppm.\n\nLEL (combustible): Detection range 0 to 100% LEL. Low alarm 10% LEL. High alarm 20% LEL. No STEL or TWA values apply.\n\nSO2 (sulfur dioxide): Detection range 0 to 20 ppm. Low alarm 2 ppm. High alarm 5 ppm. STEL 5 ppm. TWA 2 ppm.\n\nNO2 (nitrogen dioxide): Detection range 0 to 20 ppm. Low alarm 2.5 ppm. High alarm 5 ppm. STEL 1 ppm. TWA 3 ppm.\n\nNH3 (ammonia): Detection range 0 to 100 ppm. Low alarm 25 ppm. High alarm 50 ppm. STEL 35 ppm. TWA 25 ppm.",
+        "3. POWER AND BATTERY LIFE SENTRY-X3 units run on a single rechargeable lithium-polymer battery (3.7 V, 2400 mAh, part number HDS-BAT-X3). Charging is performed via the included drop-in charging cradle (part HDS-CRDL-X3) using a 5 V / 2 A USB-C power supply. Full charge time: 4.5 hours. Battery life under continuous operation, with all sensors active and backlight at default brightness:\n\nX3\n\n100: 36 hours\n\nX3\n\n400: 22 hours\n\nX3\n\n700: 16 hours\n\nBattery health is reported as a percentage on the home screen and degrades by approximately 0.5% per 100 charge cycles. Replacement batteries are warranted for 24 months from date of installation.\n\n4. DETECTED GASES - RANGES AND ALARM THRESHOLDS The following alarm thresholds are the factory defaults. They may be adjusted in the field using the maintenance menu (see Section 7), within the ranges shown in parentheses."
+      ],
+      "ground_truth": "YES - the SENTRY-X3-700 (seven-gas configuration) detects ammonia (NH3).",
+      "latency_sec": 29.204
+    },
+    {
+      "id": "fmt-list-01",
+      "type": "factual",
+      "format_type": "LIST",
+      "doc": "eval/sample_docs/sku_price_list.pdf",
+      "question": "List all products classified as Peripherals.",
+      "answer": "* KB-4710 Tactile-S Mechanical Keyboard\n* MS-4822 Glide-M Wireless Mouse\n* DK-6090 Universal USB-C Dock",
+      "contexts": [
+        "| SKU | Product | Category | Unit Price (USD) | Stock (units) |\n| --- | --- | --- | --- | --- |\n| NB-1042 | Aurora 14 Notebook | Laptops | 1499.00 | 37 |\n| NB-2188 | Aurora 16 Workstation | Laptops | 2399.00 | 12 |\n| MN-3301 | ChromaView 27 Monitor | Monitors | 549.00 | 84 |\n| MN-3315 | ChromaView 32 Monitor | Monitors | 799.00 | 19 |\n| KB-4710 | Tactile-S Mechanical Keyboard | Peripherals | 129.00 | 152 |\n| MS-4822 | Glide-M Wireless Mouse | Peripherals | 59.00 | 240 |\n| HS-5103 | Vox-Pro Headset | Audio | 189.00 | 63 |\n| DK-6090 | Universal USB-C Dock | Peripherals | 229.00 | 45 |\n| TB-7011 | Slate Pro 11 Tablet | Tablets | 699.00 | 28 |",
+        "Monitors\n\n549.00\n\n84\n\nMN-3315 ChromaView 32 Monitor\n\nMonitors\n\n799.00\n\n19\n\nKB-4710\n\nTactile-S Mechanical Keyboard Peripherals\n\n129.00\n\n152\n\nMS-4822 Glide-M Wireless Mouse\n\nPeripherals\n\n59.00\n\n240\n\nHS-5103",
+        "SKU: MS-4822; Product: Glide-M Wireless Mouse; Category: Peripherals; Unit Price (USD): 59.00; Stock (units): 240"
+      ],
+      "ground_truth": "- Tactile-S Mechanical Keyboard\n- Glide-M Wireless Mouse\n- Universal USB-C Dock\n(3 items)",
+      "latency_sec": 32.932
+    },
+    {
+      "id": "fmt-compare-01",
+      "type": "factual",
+      "format_type": "COMPARE",
+      "doc": "eval/sample_docs/sentry_x3_manual.txt",
+      "question": "Compare the battery life of the SENTRY-X3-100 and SENTRY-X3-700.",
+      "answer": "The SENTRY-X3-100 has a battery life of 36 hours under continuous operation, while the SENTRY-X3-700 has a battery life of 16 hours under continuous operation.",
+      "contexts": [
+        "3. POWER AND BATTERY LIFE SENTRY-X3 units run on a single rechargeable lithium-polymer battery (3.7 V, 2400 mAh, part number HDS-BAT-X3). Charging is performed via the included drop-in charging cradle (part HDS-CRDL-X3) using a 5 V / 2 A USB-C power supply. Full charge time: 4.5 hours. Battery life under continuous operation, with all sensors active and backlight at default brightness:\n\nX3\n\n100: 36 hours\n\nX3\n\n400: 22 hours\n\nX3\n\n700: 16 hours\n\nBattery health is reported as a percentage on the home screen and degrades by approximately 0.5% per 100 charge cycles. Replacement batteries are warranted for 24 months from date of installation.\n\n4. DETECTED GASES - RANGES AND ALARM THRESHOLDS The following alarm thresholds are the factory defaults. They may be adjusted in the field using the maintenance menu (see Section 7), within the ranges shown in parentheses.",
+        "20 to +50 C.\n\nSENTRY\n\nX3\n\n400: Four\n\ngas configuration. Detects O2 (oxygen), CO (carbon monoxide), H2S (hydrogen sulfide), and LEL (lower explosive limit for combustible gases). Standard for confined\n\nspace entry. Weight: 286 grams. Operating temperature:\n\n20 to +55 C.\n\nSENTRY\n\nX3\n\n700: Seven\n\ngas configuration. Detects all four X3\n\n400 gases plus SO2 (sulfur dioxide), NO2 (nitrogen dioxide), and NH3 (ammonia). Intended for refinery and chemical\n\nplant use. Weight: 342 grams. Operating temperature:\n\n20 to +55 C.\n\nAll three variants share the same outer enclosure dimensions: 121 mm tall, 73 mm wide, 41 mm deep.",
+        "SENTRY-X3 INDUSTRIAL GAS DETECTOR - TECHNICAL MANUAL Revision 4.2 | Effective Q1 2026 | Helios Detection Systems\n\n1. OVERVIEW The SENTRY-X3 is the fourth-generation portable gas detector from Helios Detection Systems, designed for use in confined spaces, refinery operations, and emergency response. It uses a combination of electrochemical, catalytic bead, and non-dispersive infrared (NDIR) sensors to monitor target gases continuously and trigger audible and visual alarms when concentrations exceed configured thresholds. SENTRY-X3 units are intrinsically safe and certified for use in Zone 0, Zone 1, and Zone 2 hazardous environments under ATEX directive 2014/34/EU.\n\n2. MODEL VARIANTS The SENTRY-X3 product line includes three primary variants, distinguished by sensor count and target gas selection:\n\nSENTRY\n\nX3\n\n100: Single\n\ngas configuration. At order time, customers select one of O2, CO, or H2S. Intended for routine spot checks. Weight: 218 grams. Operating temperature:"
+      ],
+      "ground_truth": "The X3-100 runs for 36 hours of continuous operation, whereas the X3-700 runs for 16 hours, so the X3-100 lasts 20 hours longer.",
+      "latency_sec": 24.582
+    },
+    {
+      "id": "fmt-define-01",
+      "type": "factual",
+      "format_type": "DEFINE",
+      "doc": "eval/sample_docs/sentry_x3_manual.txt",
+      "question": "Define error code E14.",
+      "answer": "Span calibration is overdue, as the last calibration was over 180 days ago.",
+      "contexts": [
+        "9. ERROR CODES The SENTRY-X3 reports faults as numeric error codes prefixed with \"E\". Selected codes: - E01: O2 sensor self-test failure. Replace O2 sensor module. - E02: CO sensor self-test failure. Replace CO sensor module. - E03: H2S sensor self-test failure. Replace H2S sensor module. - E04: LEL sensor self-test failure. Replace LEL sensor module. - E07: Battery temperature out of range. Wait for unit to reach -20 to +55 C and retry. - E09: Battery charge below 5%. Charge for at least 30 minutes before use. - E12: Bump test overdue by more than 24 hours. Perform a bump test before returning to service. - E14: Span calibration overdue (last calibration over 180 days ago). Perform span calibration before returning to service. - E15: Internal clock not set. Set date and time via maintenance menu.",
+        "5. INSTALLATION AND POWER-ON Out of the box, each SENTRY-X3 ships with a 50% pre-charge. Before first use, fully charge the unit in the supplied cradle for at least 4.5 hours. Power on by pressing and holding the green PWR button for 3 seconds. The device performs a self-test (approximately 30 seconds) during which all sensors warm up and the display cycles through every alarm icon. Do not enter a hazardous area until self-test completes and the home screen displays \"READY\". If any sensor fails self-test, the unit will display the corresponding error code (see Section 9) and refuse to enter monitoring mode.",
+        "6. BUMP TEST PROCEDURE A bump test verifies that each sensor responds to its target gas. Helios recommends a bump test before every shift in which the detector will be used in a hazardous area. The procedure: Step 1. Attach the bump-test calibration cap (part HDS-CAP-BMP) to the front of the unit. Step 2. Connect a calibration gas cylinder (Helios recommends quad-mix part HDS-GAS-Q1: 18% O2, 50 ppm CO, 25 ppm H2S, 50% LEL methane) using the supplied 3/16-inch tubing. Step 3. From the home screen, press the SETUP button twice to enter the maintenance menu, then select \"Bump Test\". Step 4. Open the cylinder regulator to deliver 0.5 LPM for 30 seconds. Step 5. The unit will mark each sensor PASS (green) or FAIL (red). Any FAIL requires a full span calibration (see Section 7) before the unit may be returned to service."
+      ],
+      "ground_truth": "Error code E14 indicates that span calibration is overdue (last calibration over 180 days ago). A span calibration is required before the unit can return to service.",
+      "latency_sec": 27.869
+    },
+    {
+      "id": "fmt-summary-01",
+      "type": "factual",
+      "format_type": "SUMMARY",
+      "doc": "eval/sample_docs/nova_handbook.txt",
+      "question": "Summarize Nova's leave and time-off policies.",
+      "answer": "Nova offers a hybrid work model with designated remote-work days. Employees are expected on-site at their assigned office three days a week, while Mondays and Fridays are remote. Engineers can request fully remote status after 12 months of employment with manager approval.\n\nPaid time off includes:\n\n- Vacation: 22 days per year, accrued at 1.83 days per month, with up to 5 unused days carryover.\n- Sick leave: 10 non-accruing days per year.\n- Personal days: 3 per year, requiring 48 hours' notice unless an emergency.\n- Bereavement: up to 5 paid days for immediate family.\n\nAdditionally, Nova offers parental leave:\n\n- Birthing parents receive 16 weeks of fully paid leave.\n- Non-birthing parents receive 12 weeks of fully paid leave.\n- Both must be taken within the first 12 months following birth or adoption.",
+      "contexts": [
+        "3. WORKING HOURS AND REMOTE POLICY Nova operates on a hybrid model. Employees are expected on-site at their assigned office on Tuesdays, Wednesdays, and Thursdays. Mondays and Fridays are designated remote-work days. Engineers may request fully remote status after their first 12 months of employment with manager approval.\n\n4. PAID TIME OFF - Vacation: 22 days per calendar year, accrued at 1.83 days per month. Up to 5 unused days may be carried over into the following year. - Sick leave: 10 days per year, non-accruing. - Personal days: 3 per year, must be requested at least 48 hours in advance unless emergency. - Bereavement: up to 5 paid days for immediate family.\n\n5. PARENTAL LEAVE Birthing parents receive 16 weeks of fully paid leave. Non-birthing parents receive 12 weeks of fully paid leave. Both must be taken within the first 12 months following birth or adoption. Adoption leave matches biological parental leave.",
+        "8. HOLIDAYS Nova observes the following holidays in 2026: New Year's Day (Jan 1), Martin Luther King Jr. Day (Jan 19), Presidents' Day (Feb 16), Memorial Day (May 25), Juneteenth (Jun 19), Independence Day (Jul 3 observed), Labor Day (Sep 7), Thanksgiving (Nov 26) and the day after (Nov 27), Christmas Eve (Dec 24), and Christmas Day (Dec 25). Lisbon employees additionally observe Portugal Day (Jun 10), Assumption Day (Aug 15), and Republic Day (Oct 5).\n\n9. CODE OF CONDUCT Nova prohibits harassment of any kind. All employees must complete annual anti-harassment training within 30 days of their work anniversary. Reports may be filed confidentially through the ethics hotline at ethics@nova-research.example or +1 (503) 555-0142.\n\n10. CONFIDENTIALITY All employees sign a Mutual Confidentiality Agreement on their first day. Source code, customer data, internal financials, and unreleased product roadmaps are considered confidential. Breach may result in termination and legal action.",
+        "NOVA RESEARCH LABS\n\nEMPLOYEE HANDBOOK (FY 2026)\n\n1. ABOUT NOVA RESEARCH LABS Nova Research Labs was founded on March 14, 2017 by Dr. Lena Okafor and Marcus Reinholt in Portland, Oregon. The company specializes in scientific instrument software for spectroscopy and microscopy. As of January 2026, Nova employs 142 people across three offices: Portland (HQ), Boston, and Lisbon.\n\n2. OFFICE LOCATIONS AND HOURS - Portland HQ: 1207 NW Glisan Street, Portland, OR 97209. Open 8:00 AM to 7:00 PM Pacific Time. - Boston: 80 Atlantic Avenue, 5th Floor, Boston, MA 02110. Open 8:30 AM to 6:30 PM Eastern Time. - Lisbon: Rua da Misericordia 42, 1200-273 Lisbon, Portugal. Open 9:00 AM to 6:00 PM Western European Time."
+      ],
+      "ground_truth": "Nova provides 22 paid vacation days per calendar year. Sick leave is 10 days annually and personal days are 3 per year. Bereavement leave is up to 5 days. Birthing parents receive 16 weeks of fully paid parental leave. Non-birthing parents receive 12 weeks of fully paid parental leave.",
+      "latency_sec": 56.335
     }
   ],
   "aggregates": {
-    "answer_correctness": 0.7896725118762972,
-    "answer_f1": 0.7728049255596573,
+    "answer_correctness": 0.7733818944346195,
+    "answer_f1": 0.7583478754869871,
     "refusal_accuracy": 0.8571428571428571,
+    "format_compliance": 0.9090909090909091,
     "context_precision": 1.0,
     "context_recall": 1.0
   },
@@ -505,317 +706,508 @@
     {
       "id": "fact-01",
       "type": "factual",
+      "format_type": null,
       "answer_correctness": 0.9333333333333333,
       "answer_f1": 0.9333333333333333,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "fact-02",
       "type": "factual",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": 1.0,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "fact-03",
       "type": "factual",
-      "answer_correctness": 0.4444444444444445,
-      "answer_f1": 0.4444444444444445,
+      "format_type": null,
+      "answer_correctness": 0.8333333333333333,
+      "answer_f1": 0.8333333333333333,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "fact-04",
       "type": "factual",
+      "format_type": null,
       "answer_correctness": 0.3636363636363636,
       "answer_f1": 0.3636363636363636,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "fact-05",
       "type": "factual",
+      "format_type": null,
       "answer_correctness": 0.9473684210526316,
       "answer_f1": 0.9473684210526316,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "synth-01",
       "type": "synthesis",
-      "answer_correctness": 0.7241379310344828,
-      "answer_f1": 0.7241379310344828,
+      "format_type": null,
+      "answer_correctness": 0.746268656716418,
+      "answer_f1": 0.746268656716418,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "synth-02",
       "type": "synthesis",
-      "answer_correctness": 0.6060606060606061,
-      "answer_f1": 0.6060606060606061,
+      "format_type": null,
+      "answer_correctness": 0.6027397260273973,
+      "answer_f1": 0.6027397260273973,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "synth-03",
       "type": "synthesis",
+      "format_type": null,
       "answer_correctness": 0.507936507936508,
       "answer_f1": 0.507936507936508,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "synth-04",
       "type": "synthesis",
-      "answer_correctness": 1.0,
-      "answer_f1": 1.0,
+      "format_type": null,
+      "answer_correctness": 0.9361702127659575,
+      "answer_f1": 0.9361702127659575,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "num-01",
       "type": "numeric",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": 1.0,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "num-02",
       "type": "numeric",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": 1.0,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "num-03",
       "type": "numeric",
+      "format_type": null,
       "answer_correctness": 0.3636363636363636,
       "answer_f1": 0.3636363636363636,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "oos-01",
       "type": "out_of_scope",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": NaN,
       "refusal_correct": true,
+      "format_compliance": null,
       "context_precision": NaN,
       "context_recall": NaN
     },
     {
       "id": "oos-02",
       "type": "out_of_scope",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": NaN,
       "refusal_correct": true,
+      "format_compliance": null,
       "context_precision": NaN,
       "context_recall": NaN
     },
     {
       "id": "oos-03",
       "type": "out_of_scope",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": NaN,
       "refusal_correct": true,
+      "format_compliance": null,
       "context_precision": NaN,
       "context_recall": NaN
     },
     {
       "id": "sx3-fact-01",
       "type": "factual",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": 1.0,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "sx3-fact-02",
       "type": "factual",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": 1.0,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "sx3-fact-03",
       "type": "factual",
-      "answer_correctness": 1.0,
-      "answer_f1": 1.0,
+      "format_type": null,
+      "answer_correctness": 0.6666666666666666,
+      "answer_f1": 0.6666666666666666,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "sx3-num-01",
       "type": "numeric",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": 1.0,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "sx3-num-02",
       "type": "numeric",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": 1.0,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "sx3-num-03",
       "type": "numeric",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": 1.0,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "sx3-synth-01",
       "type": "synthesis",
-      "answer_correctness": 0.761904761904762,
-      "answer_f1": 0.761904761904762,
+      "format_type": null,
+      "answer_correctness": 0.711111111111111,
+      "answer_f1": 0.711111111111111,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "sx3-synth-02",
       "type": "synthesis",
-      "answer_correctness": 0.13793103448275862,
-      "answer_f1": 0.13793103448275862,
+      "format_type": null,
+      "answer_correctness": 0.5357142857142857,
+      "answer_f1": 0.5357142857142857,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "sx3-oos-01",
       "type": "out_of_scope",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": NaN,
       "refusal_correct": true,
+      "format_compliance": null,
       "context_precision": NaN,
       "context_recall": NaN
     },
     {
       "id": "sx3-oos-02",
       "type": "out_of_scope",
+      "format_type": null,
       "answer_correctness": 0.0,
       "answer_f1": NaN,
       "refusal_correct": false,
+      "format_compliance": null,
       "context_precision": NaN,
       "context_recall": NaN
     },
     {
       "id": "fb-fact-01",
       "type": "factual",
+      "format_type": null,
       "answer_correctness": 0.9,
       "answer_f1": 0.9,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "fb-num-01",
       "type": "numeric",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": 1.0,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "fb-synth-01",
       "type": "synthesis",
-      "answer_correctness": 0.8148148148148148,
-      "answer_f1": 0.8148148148148148,
+      "format_type": null,
+      "answer_correctness": 0.7692307692307692,
+      "answer_f1": 0.7692307692307692,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "fb-fact-02",
       "type": "factual",
+      "format_type": null,
       "answer_correctness": 0.6666666666666666,
       "answer_f1": 0.6666666666666666,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "fb-oos-01",
       "type": "out_of_scope",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": NaN,
       "refusal_correct": true,
+      "format_compliance": null,
       "context_precision": NaN,
       "context_recall": NaN
     },
     {
       "id": "sku-fact-01",
       "type": "factual",
+      "format_type": null,
       "answer_correctness": 0.8,
       "answer_f1": 0.8,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "sku-fact-02",
       "type": "factual",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": 1.0,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "sku-num-01",
       "type": "numeric",
+      "format_type": null,
       "answer_correctness": 0.6666666666666666,
       "answer_f1": 0.6666666666666666,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "sku-synth-01",
       "type": "synthesis",
-      "answer_correctness": 0.0,
-      "answer_f1": 0.0,
+      "format_type": null,
+      "answer_correctness": 0.5714285714285715,
+      "answer_f1": 0.5714285714285715,
       "refusal_correct": null,
+      "format_compliance": null,
       "context_precision": 1.0,
       "context_recall": 1.0
     },
     {
       "id": "sku-oos-01",
       "type": "out_of_scope",
+      "format_type": null,
       "answer_correctness": 1.0,
       "answer_f1": NaN,
       "refusal_correct": true,
+      "format_compliance": null,
       "context_precision": NaN,
       "context_recall": NaN
+    },
+    {
+      "id": "fmt-what-01",
+      "type": "factual",
+      "format_type": "WHAT",
+      "answer_correctness": 0.6122448979591837,
+      "answer_f1": 0.6122448979591837,
+      "refusal_correct": null,
+      "format_compliance": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": "fmt-when-01",
+      "type": "factual",
+      "format_type": "WHEN",
+      "answer_correctness": 1.0,
+      "answer_f1": 1.0,
+      "refusal_correct": null,
+      "format_compliance": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": "fmt-how-01",
+      "type": "factual",
+      "format_type": "HOW",
+      "answer_correctness": 0.5827814569536424,
+      "answer_f1": 0.5827814569536424,
+      "refusal_correct": null,
+      "format_compliance": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": "fmt-where-01",
+      "type": "factual",
+      "format_type": "WHERE",
+      "answer_correctness": 0.9411764705882353,
+      "answer_f1": 0.9411764705882353,
+      "refusal_correct": null,
+      "format_compliance": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": "fmt-why-01",
+      "type": "factual",
+      "format_type": "WHY",
+      "answer_correctness": 0.48648648648648646,
+      "answer_f1": 0.48648648648648646,
+      "refusal_correct": null,
+      "format_compliance": 0.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": "fmt-who-01",
+      "type": "factual",
+      "format_type": "WHO",
+      "answer_correctness": 1.0,
+      "answer_f1": 1.0,
+      "refusal_correct": null,
+      "format_compliance": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": "fmt-yesno-01",
+      "type": "factual",
+      "format_type": "YES_NO",
+      "answer_correctness": 0.19047619047619047,
+      "answer_f1": 0.19047619047619047,
+      "refusal_correct": null,
+      "format_compliance": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": "fmt-list-01",
+      "type": "factual",
+      "format_type": "LIST",
+      "answer_correctness": 0.75,
+      "answer_f1": 0.75,
+      "refusal_correct": null,
+      "format_compliance": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": "fmt-compare-01",
+      "type": "factual",
+      "format_type": "COMPARE",
+      "answer_correctness": 0.4583333333333333,
+      "answer_f1": 0.4583333333333333,
+      "refusal_correct": null,
+      "format_compliance": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": "fmt-define-01",
+      "type": "factual",
+      "format_type": "DEFINE",
+      "answer_correctness": 0.5405405405405406,
+      "answer_f1": 0.5405405405405406,
+      "refusal_correct": null,
+      "format_compliance": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": "fmt-summary-01",
+      "type": "factual",
+      "format_type": "SUMMARY",
+      "answer_correctness": 0.4916201117318435,
+      "answer_f1": 0.4916201117318435,
+      "refusal_correct": null,
+      "format_compliance": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0
     }
   ]
 }
