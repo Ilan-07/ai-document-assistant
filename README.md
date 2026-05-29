@@ -314,17 +314,6 @@ Per-module figures (latest run):
 
 The remaining uncovered lines are defensive `except Exception` swallows around third-party-library iteration (PyMuPDF mid-page table extraction, NLTK download fallback) that would require deliberately broken fixtures to hit.
 
-#### Committing the HTML report to GitHub
-
-`coverage.py` auto-writes `htmlcov/.gitignore` with `*` to keep the HTML out of git by default. If you want to commit a snapshot of the report for reviewers, force-add it once:
-
-```bash
-git add -f htmlcov/
-git commit -m "Add coverage report snapshot"
-```
-
-Once tracked, future regenerations update the same files normally — no need to re-force-add.
-
 ### What is mocked (and why)
 
 | Component | Mock | Reason |
