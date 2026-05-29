@@ -1,0 +1,19 @@
+Nova Robotics Onboarding Handbook
+
+Welcome to Nova Robotics. This handbook covers the essentials for new hires.
+
+Section 1: Orientation
+All new hires must complete a one-day orientation session in their first week.
+Orientation is held every Monday morning at 9:00 AM in the Atlas conference room.
+
+Section 2: Equipment
+New hires receive a laptop, a security badge, and a parking permit on day one.
+Replacement badges cost twenty-five dollars and can be obtained from facilities.
+
+Section 3: Safety
+Safety glasses are required at all times in the lab.
+Fire extinguishers are located near every exit on every floor.
+
+Section 4: Contacts
+For HR questions, contact Maria Lopez in the People Operations team.
+For IT support, file a ticket via the internal helpdesk portal.

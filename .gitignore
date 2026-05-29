@@ -41,6 +41,14 @@ Thumbs.db
 !eval/sample_docs/*.txt
 !eval/sample_docs/*.pdf
 !eval/dataset.jsonl
+!tests/fixtures/*.txt
+!tests/fixtures/*.pdf
 
 # Eval outputs (you may want to commit baseline.json explicitly)
 eval/last_run.json
+
+# Coverage artifacts
+.coverage
+.coverage.*
+coverage.xml
+# htmlcov/ intentionally NOT ignored - committed for reviewers

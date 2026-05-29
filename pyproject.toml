@@ -1,0 +1,30 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --cov=rag_pipeline --cov=app --cov=eval.run_eval --cov-report=term-missing --cov-report=html --cov-report=xml --cov-fail-under=95"
+markers = [
+    "functional: end-to-end with mocked externals",
+    "unit: pure unit tests",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["rag_pipeline", "app", "eval"]
+omit = [
+    "eval/__init__.py",
+    "tests/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+    "@overload",
+]
+show_missing = true
+skip_covered = false

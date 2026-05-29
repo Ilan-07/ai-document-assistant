@@ -272,6 +272,17 @@ def check_format(answer: str, fmt: str) -> bool | None:
 
 def score_deterministic(records: list[dict], embeddings) -> dict:
     """Score records with deterministic + embedding-based metrics. No LLM judge."""
+    if not records:
+        nan = float("nan")
+        return {
+            "aggregates": {
+                "answer_correctness": nan, "answer_f1": nan,
+                "refusal_accuracy": nan, "format_compliance": nan,
+                "context_precision": nan, "context_recall": nan,
+            },
+            "per_row": [],
+        }
+
     # Collect all strings we need embeddings for, in one batch per category.
     gold_per_row = [r["ground_truth"] for r in records]
     gold_sentences_per_row = [_split_sentences(g) for g in gold_per_row]

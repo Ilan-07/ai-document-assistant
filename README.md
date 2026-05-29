@@ -186,3 +186,169 @@ Then diff the `aggregates` block in `last_run.json` against `baseline.json`. A c
 - **No streaming token output** — answers appear all at once.
 - **Source citations** show chunk text and page number but don't deep-link into the PDF.
 - **Answer quality is bounded by the local LLM** — `llama3.2:3b` is fine for extractive QA but limits multi-step reasoning. On 16 GB+ machines, swap `OLLAMA_MODEL` to `llama3.1:8b` or `qwen2.5:7b` for a substantial lift — the rest of the pipeline is model-agnostic and scales with the LLM.
+
+## Testing
+
+The repo ships with a comprehensive pytest suite that covers every major module — pipeline, Streamlit UI, and the evaluation harness — with **185 tests** and **98% line+branch coverage** (well above the 95% required gate). Tests run **fully offline**: every external service (Ollama, the HuggingFace Hub, ChromaDB persistence, the Streamlit runtime) is mocked, so no model downloads, no LLM, and no network calls are needed to run the suite.
+
+### How to run
+
+```bash
+# install test dependencies (pytest, pytest-cov, pytest-mock, coverage[toml])
+pip install -r requirements.txt
+
+# run the full suite — generates terminal, HTML, and XML coverage reports
+pytest
+
+# run only unit tests (fast, ~3s)
+pytest -m unit
+
+# run only functional tests (slower, exercises real PyMuPDF / unstructured)
+pytest -m functional
+
+# view the HTML coverage report
+open htmlcov/index.html        # macOS
+xdg-open htmlcov/index.html    # Linux
+start htmlcov/index.html       # Windows
+```
+
+The `--cov-fail-under=95` gate is enforced in `pyproject.toml` — the suite fails if total coverage drops below 95%.
+
+### Test layout
+
+```
+tests/
+├── conftest.py                        # Shared fixtures: FakeEmbeddings, mocked
+│                                      # ChatOllama, fake Chroma store, mocked
+│                                      # Streamlit module, fixture-doc factories.
+├── fixtures/
+│   ├── sample.txt                     # Narrative TXT for load/chunk tests.
+│   ├── sample.pdf                     # Narrative PDF (no tables).
+│   └── tabular.pdf                    # PDF with a real 4-row x 3-col table.
+├── test_classify_question.py          # 33 tests: regex-based question typing.
+├── test_load_document.py              # 12 tests: TXT/PDF extraction, error paths.
+├── test_chunk_documents.py            #  8 tests: element-aware + semantic chunking.
+├── test_embeddings_and_vectorstore.py #  6 tests: HF embeddings + Chroma collection.
+├── test_check_ollama_ready.py         #  6 tests: Ollama HTTP readiness probe.
+├── test_retrieval.py                  #  6 tests: BM25 + dense + reranker wiring.
+├── test_qa_chain.py                   # 12 tests: chain construction + answer paths.
+├── test_helpers.py                    # 20 tests: table heuristics, markdown, NLTK.
+├── test_app.py                        # 25 tests: Streamlit UI with mocked st.* .
+└── test_eval.py                       # 57 tests: deterministic scorers + CLI.
+```
+
+### What the tests verify
+
+The 185 tests are split across **173 unit tests** (pure logic with mocked externals) and **12 functional tests** (real PyMuPDF / `unstructured` parsing on the fixture PDFs and TXT). They are organized below by what they verify in the pipeline, not by the file they live in.
+
+#### Pipeline correctness (`rag_pipeline.py` — 103 tests)
+
+| Pipeline stage | # | What gets verified |
+|---|---:|---|
+| **Question classification** | 33 | All 12 format labels (`SUMMARY`, `COMPARE`, `LIST`, `DEFINE`, `YES_NO`, `WHO`, `WHEN`, `WHERE`, `WHY`, `HOW`, `WHAT`, `DEFAULT`), specificity ordering (e.g. `"What are all the SKUs"` → `LIST` not `WHAT`), case-insensitivity, leading whitespace, empty / punctuation-only strings, and `FORMAT_RULES` completeness. |
+| **Document extraction** | 12 | TXT, narrative PDF, and tabular PDF happy paths; error wrapping for unsupported extensions, missing files, corrupted PDFs, encrypted PDFs (mocked partition exception), `UnicodeDecodeError`, empty files; Header / Footer / PageNumber elements are dropped before chunking. |
+| **Chunking** | 8 | Default element-aware chunking; `Table` and `ListItem` categories stay atomic even above `chunk_size`; oversized narrative docs get re-split with overlap; small docs pass through unchanged; `semantic=True` routes through `SemanticChunker`; the `SEMANTIC_CHUNKING` env flag drives the default. |
+| **Embeddings + vector store** | 6 | Embeddings constructed with `EMBEDDING_MODEL` and `normalize_embeddings=True`; Chroma collection created with the right kwargs; duplicate-vector reset deletes existing IDs before re-adding; resilient to `store.get()` failure; falls back to `get_embeddings()` when none passed; honours `DEFAULT_CHROMA_DIR`. |
+| **Ollama readiness probe** | 6 | Model present, base-name match (`llama3.2:3b` matches `llama3.2:1b`), `URLError`, malformed JSON, model not pulled (with "ollama pull" suggestion), missing `models` field. |
+| **Hybrid retrieval** | 6 | BM25 + dense composition in `[bm25, dense]` order; weight permutations (`0.0` → dense-only, `0.5` → balanced, `1.0` → BM25-only); `k` and `search_kwargs` propagated. |
+| **Reranker** | 3 | `get_reranker` caches its singleton across calls; `model_name` propagated; `wrap_with_reranker` returns a `ContextualCompressionRetriever` with correct `top_n`. |
+| **QA chain + answering** | 12 | All chain-construction permutations (chunks / no chunks, reranker on / off / env-default); `answer_question` happy path; empty / whitespace questions rejected; `URLError`, "connection", "timeout", and generic exceptions wrapped as `RagPipelineError` with friendly messages. |
+| **Internal helpers** | 20 | `_looks_like_real_table` accepts real tables and rejects 6 false-positive shapes; `_table_to_markdown` handles pipe escaping, uneven rows, `None` cells; `_row_to_fact` skips empty pairs and handles numeric values; `_ensure_nltk_data` downloads only when missing; `_extract_pdf_tables` round-trips the tabular fixture. |
+
+#### Streamlit UI (`app.py` — 25 tests)
+
+Every test runs against a **mocked Streamlit module** (`session_state`, widgets, context managers all stubbed) so no Streamlit runtime is required.
+
+| Behaviour | # | What gets verified |
+|---|---:|---|
+| **File fingerprinting** | 4 | Stable hashes across calls; 16-char output; sensitive to filename and content. |
+| **Cached embeddings** | 1 | `cached_embeddings()` delegates to `get_embeddings()`. |
+| **Ingestion flow** | 4 | Happy path returns the full `{chain, fingerprint, filename, chunk_count, page_count}` dict; temp file cleaned on success and on error; `OSError` from `os.unlink` is swallowed (Windows lock case); `RagPipelineError` propagates. |
+| **Sidebar** | 3 | `model_name` / `base_url` written to `session_state`; existing values preserved as text-input defaults; Clear button `rmtree`s the vector store, clears session keys, triggers `st.rerun`. |
+| **Chat rendering** | 8 | No question → early return; happy path appends user + assistant messages with sources captured; existing history is replayed; messages missing `sources` key don't crash; `RagPipelineError` → friendly warning; unexpected exceptions → generic error; long snippets truncated to 403 chars with `...`; empty-context path. |
+| **Main app flow** | 5 | No upload → info shown; new file → ingest runs + toast; same fingerprint → ingest skipped (cache hit); ingest `RagPipelineError` → session cleared + error; unexpected exception → session cleared + error. |
+
+#### Evaluation harness (`eval/run_eval.py` — 57 tests)
+
+| Behaviour | # | What gets verified |
+|---|---:|---|
+| **HF cache detection** | 3 | Missing dir, empty hub, hub with `models--*` entries. |
+| **Dataset loading** | 2 | Skips `#` comments + blank lines; raises `JSONDecodeError` on malformed lines. |
+| **SQuAD-style scoring** | 6 | `_normalize` strips articles + punctuation; `token_f1` returns 1.0 on exact match, 0.0 on no overlap, the known partial-overlap formula, and handles empty strings. |
+| **Refusal detection** | 4 | Canonical refusal recognised, refusal with trailing explanation recognised, real answers not flagged, empty answer → False. |
+| **Format compliance** | 23 | All 12 format types (YES_NO, LIST, SUMMARY, WHEN, HOW, WHY, COMPARE, WHAT, DEFINE, WHO, WHERE) have pass + fail cases; unknown format → `None`; empty answer → `False`. |
+| **Chunk relevance** | 4 | High cosine → relevant; low cosine + high token overlap → relevant (the rescue rule); neither → not relevant; empty-gold-tokens edge case. |
+| **Sentence splitting** | 3 | Multi-sentence split works; decimal numbers (`$0.67`, `22.5`) don't trigger splits; empty → `[]`. |
+| **Pipeline orchestration** | 3 | `build_chain_for_doc` returns `(chain, n_chunks)`; `run_pipeline` collects per-row predictions with `latency_sec`; chain is reused across questions on the same doc. |
+| **Deterministic scorer** | 4 | All six aggregate keys present; empty records → all-NaN aggregates (regression test for the bug fix); empty contexts → NaN P/R; format compliance recorded per-row. |
+| **CLI entry point** | 3 | `print_aggregates` runs on NaN values without crashing; `--smoke --skip-scoring` trims to 2 rows and omits aggregates; full run produces aggregates JSON. |
+
+#### What the tests deliberately do NOT verify
+
+The pytest suite mocks every external service so it can run offline in <20s. That means it verifies **plumbing**, not **answer quality**. Specifically not tested here:
+
+- **LLM answer quality** — `ChatOllama` is mocked.
+- **Embedding semantic ranking** — `HuggingFaceEmbeddings` returns hash-seeded vectors, not real BGE-small embeddings.
+- **Reranker precision improvement** — `HuggingFaceCrossEncoder` is mocked.
+- **Real Chroma persistence across restarts** — `Chroma` is mocked.
+- **Hybrid vs single-retriever performance on real queries**.
+
+Those are answer-quality questions, not correctness questions — they belong to the eval harness (`eval/run_eval.py`), not the pytest suite. Run `python eval/run_eval.py` against a live Ollama to measure them; the baseline is captured in `eval/baseline.json`.
+
+### Coverage
+
+After running `pytest`, coverage artifacts are written to:
+
+- `htmlcov/index.html` — browseable HTML report (open in a browser)
+- `coverage.xml` — Cobertura-format XML for CI / Codecov integration
+- `.coverage` — binary database (regenerated each run, gitignored)
+
+Per-module figures (latest run):
+
+| Module | Statements | Missed | Branch | Partial | Coverage |
+|---|---:|---:|---:|---:|---:|
+| `app.py` | 133 | 0 | 28 | 2 | **99%** |
+| `eval/run_eval.py` | 244 | 1 | 74 | 5 | **98%** |
+| `rag_pipeline.py` | 230 | 5 | 72 | 3 | **97%** |
+| **TOTAL** | **607** | **6** | **174** | **10** | **98%** |
+
+The remaining uncovered lines are defensive `except Exception` swallows around third-party-library iteration (PyMuPDF mid-page table extraction, NLTK download fallback) that would require deliberately broken fixtures to hit.
+
+#### Committing the HTML report to GitHub
+
+`coverage.py` auto-writes `htmlcov/.gitignore` with `*` to keep the HTML out of git by default. If you want to commit a snapshot of the report for reviewers, force-add it once:
+
+```bash
+git add -f htmlcov/
+git commit -m "Add coverage report snapshot"
+```
+
+Once tracked, future regenerations update the same files normally — no need to re-force-add.
+
+### What is mocked (and why)
+
+| Component | Mock | Reason |
+|---|---|---|
+| `HuggingFaceEmbeddings` | `FakeEmbeddings` (deterministic 384-d vectors) | Avoid ~150 MB model download in CI |
+| `ChatOllama` | `MagicMock` returning canned `AIMessage` | Avoid Ollama dependency |
+| `HuggingFaceCrossEncoder` | `MagicMock` returning descending scores | Avoid ~100 MB reranker download |
+| `Chroma` | `MagicMock` store with `BaseRetriever`-subclass `.as_retriever()` | Avoid disk persistence + pydantic validation |
+| `urllib.request.urlopen` | per-test patches | Test Ollama-readiness branches without a server |
+| `streamlit.*` (every widget, `session_state`, context managers) | per-test patches via `mock_streamlit` fixture | Test UI logic without a Streamlit runtime |
+| `unstructured.partition_*` | per-test patches for error-path tests | Inject `UnicodeDecodeError`, encryption errors, empty results |
+
+### Markers
+
+- `@pytest.mark.unit` — pure unit test, no fixtures touch disk, fast.
+- `@pytest.mark.functional` — uses fixture files or real PyMuPDF / `unstructured` parsing; still offline.
+
+Run a subset with `pytest -m unit` or `pytest -m functional`.
+
+### Extending the suite
+
+To add a new test:
+
+1. Pick the right file (or create a new `tests/test_<module>.py`).
+2. Use existing fixtures from `tests/conftest.py` — `fake_embeddings`, `fake_chat_ollama`, `patch_external_models`, `mock_streamlit`, `uploaded_file_factory`, `sample_documents`, etc.
+3. Tag with `@pytest.mark.unit` or `@pytest.mark.functional`.
+4. For new mocking seams, add the patch to `conftest.py` so multiple tests can share it.
